@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Team — Full Circle Santa Fe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            terracotta: { DEFAULT: '#C2703E', light: '#D4915F', dark: '#A85A2B' },
+            sage: { DEFAULT: '#7A8B69', light: '#9AAD8A', dark: '#5C6B4F' },
+            gold: { DEFAULT: '#D4A853', light: '#E0C07A' },
+            cream: { DEFAULT: '#FAF7F2', dark: '#EDE6D9' },
+            sand: '#E8DFD1',
+            adobe: { DEFAULT: '#2D1F14', light: '#4A3728' },
+          },
+          fontFamily: {
+            serif: ['Georgia', '"Times New Roman"', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --terracotta: #C2703E; --terracotta-light: #D4915F; --terracotta-dark: #A85A2B;
+      --sage: #7A8B69; --sage-light: #9AAD8A; --sage-dark: #5C6B4F;
+      --gold: #D4A853; --gold-light: #E0C07A;
+      --cream: #FAF7F2; --cream-dark: #EDE6D9;
+      --sand: #E8DFD1; --adobe: #2D1F14; --adobe-light: #4A3728; --charcoal: #1A1A1A;
+    }
+    body { font-family: 'Inter', system-ui, sans-serif; color: var(--charcoal); }
+    h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; }
+    .hero-overlay { background: linear-gradient(to bottom, rgba(45,31,20,0.5) 0%, rgba(45,31,20,0.7) 100%); }
+    .nav-link { position:relative; }
+    .nav-link::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:2px; background:var(--terracotta); transition:width 0.3s; }
+    .nav-link:hover::after { width:100%; }
+  </style>
+</head>
+<body class="bg-cream">
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-cream shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-terracotta flex items-center justify-center flex-shrink-0">
+          <span class="text-white font-bold text-sm">FC</span>
+        </div>
+        <span class="font-serif font-bold text-adobe text-lg leading-tight hidden sm:block">Full Circle<br><span class="text-terracotta text-sm font-sans font-semibold">Santa Fe</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-adobe-light">
+        <a href="index.html" class="nav-link hover:text-terracotta transition-colors">Home</a>
+        <a href="our-mission.html" class="nav-link hover:text-terracotta transition-colors">Our Mission</a>
+        <a href="volunteer.html" class="nav-link hover:text-terracotta transition-colors">Volunteer</a>
+        <a href="news.html" class="nav-link hover:text-terracotta transition-colors">News</a>
+        <a href="our-team.html" class="nav-link text-terracotta font-semibold">Our Team</a>
+        <a href="donate.html" class="nav-link hover:text-terracotta transition-colors">Donate</a>
+        <a href="donate.html" class="ml-2 bg-terracotta text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-terracotta-dark transition-colors">Support Us</a>
+      </nav>
+      <button class="md:hidden text-adobe" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-cream border-t border-sand px-6 py-4 flex flex-col gap-3 text-sm font-medium text-adobe-light">
+      <a href="index.html" class="hover:text-terracotta">Home</a>
+      <a href="our-mission.html" class="hover:text-terracotta">Our Mission</a>
+      <a href="volunteer.html" class="hover:text-terracotta">Volunteer</a>
+      <a href="news.html" class="hover:text-terracotta">News</a>
+      <a href="our-team.html" class="text-terracotta font-semibold">Our Team</a>
+      <a href="donate.html" class="hover:text-terracotta">Donate</a>
+      <a href="donate.html" class="bg-terracotta text-white px-4 py-2 rounded-full text-center font-semibold">Support Us</a>
+    </div>
+  </header>
+
+  <main class="pt-16">
+
+    <!-- HERO -->
+    <section class="relative h-[50vh] flex items-center justify-center overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80" alt="Community team" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="hero-overlay absolute inset-0"></div>
+      <div class="relative z-10 text-center text-white px-6 max-w-3xl mx-auto">
+        <h1 class="font-serif text-5xl md:text-6xl font-bold mb-4">Our Team</h1>
+        <p class="text-white/85 text-lg md:text-xl">The people behind the mission — passionate stewards of land, community, and culture.</p>
+      </div>
+    </section>
+
+    <!-- FOUNDERS -->
+    <section class="bg-cream py-20 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-14">
+          <span class="text-terracotta font-semibold text-sm uppercase tracking-widest">Leadership</span>
+          <h2 class="font-serif text-4xl text-adobe mt-2">Our Founders</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-10">
+          <!-- Joe -->
+          <div class="bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col md:flex-row">
+            <div class="md:w-52 flex-shrink-0">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Joe, Executive Director" class="w-full h-56 md:h-full object-cover object-top" />
+            </div>
+            <div class="p-8 flex flex-col justify-center">
+              <div class="mb-1">
+                <span class="text-xs font-semibold uppercase tracking-widest text-terracotta bg-terracotta/10 px-3 py-1 rounded-full">Executive Director</span>
+              </div>
+              <h3 class="font-serif text-2xl text-adobe mt-3 mb-3">Joe</h3>
+              <p class="text-adobe-light text-sm leading-relaxed">Joe brings over 15 years of experience in ecological restoration and nonprofit leadership. A Santa Fe native, he founded Full Circle to reconnect the community with the land that has shaped the region's culture for centuries. His background spans native plant horticulture, watershed management, and community organizing.</p>
+            </div>
+          </div>
+          <!-- Chas -->
+          <div class="bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col md:flex-row">
+            <div class="md:w-52 flex-shrink-0">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt="Chas, Creative Director" class="w-full h-56 md:h-full object-cover object-top" />
+            </div>
+            <div class="p-8 flex flex-col justify-center">
+              <div class="mb-1">
+                <span class="text-xs font-semibold uppercase tracking-widest text-sage bg-sage/15 px-3 py-1 rounded-full">Creative Director</span>
+              </div>
+              <h3 class="font-serif text-2xl text-adobe mt-3 mb-3">Chas</h3>
+              <p class="text-adobe-light text-sm leading-relaxed">Chas merges his passion for Southwest art and culture with a deep commitment to community-driven design. With roots in both gallery arts and public installations, he ensures that beauty and cultural meaning are woven into every Full Circle project. He has collaborated with over 20 local artists on public art commissions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADVISORY BOARD -->
+    <section class="bg-cream-dark py-20 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-14">
+          <span class="text-terracotta font-semibold text-sm uppercase tracking-widest">Advisors</span>
+          <h2 class="font-serif text-4xl text-adobe mt-2 mb-4">Advisory Board</h2>
+          <p class="text-adobe-light text-lg max-w-2xl mx-auto">Our advisory board brings deep expertise in ecology, landscape architecture, arts administration, and community development.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Maria -->
+          <div class="bg-white rounded-2xl p-8 text-center shadow-sm border border-sand">
+            <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-5 border-4 border-sand">
+              <img src="https://images.unsplash.com/photo-1494790108755-2616b612b82c?w=200&q=80" alt="Maria Gonzalez" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="font-serif text-lg text-adobe mb-1">Maria Gonzalez</h3>
+            <p class="text-terracotta text-sm font-semibold mb-3">Landscape Architect</p>
+            <p class="text-adobe-light text-xs leading-relaxed">ASLA Fellow with 20 years designing sustainable public landscapes across the Southwest.</p>
+          </div>
+          <!-- Dr. Thomas -->
+          <div class="bg-white rounded-2xl p-8 text-center shadow-sm border border-sand">
+            <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-5 border-4 border-sand">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80" alt="Dr. Thomas Rivera" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="font-serif text-lg text-adobe mb-1">Dr. Thomas Rivera</h3>
+            <p class="text-sage text-sm font-semibold mb-3">Ecologist</p>
+            <p class="text-adobe-light text-xs leading-relaxed">Professor of Desert Ecology at UNM and leading researcher in Chihuahuan Desert riparian systems.</p>
+          </div>
+          <!-- Sarah -->
+          <div class="bg-white rounded-2xl p-8 text-center shadow-sm border border-sand">
+            <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-5 border-4 border-sand">
+              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&q=80" alt="Sarah Lightfoot" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="font-serif text-lg text-adobe mb-1">Sarah Lightfoot</h3>
+            <p class="text-gold text-sm font-semibold mb-3">Arts Administrator</p>
+            <p class="text-adobe-light text-xs leading-relaxed">Former Director of the New Mexico Arts Commission and champion of public art in underserved communities.</p>
+          </div>
+          <!-- Robert -->
+          <div class="bg-white rounded-2xl p-8 text-center shadow-sm border border-sand">
+            <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-5 border-4 border-sand">
+              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&q=80" alt="Robert Sandoval" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="font-serif text-lg text-adobe mb-1">Robert Sandoval</h3>
+            <p class="text-adobe-light text-sm font-semibold mb-3">Community Liaison</p>
+            <p class="text-adobe-light text-xs leading-relaxed">Longtime neighborhood advocate and former City Councilmember with deep roots in Santa Fe's historic Eastside.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOIN OUR TEAM CTA -->
+    <section class="bg-sage py-16 px-6 text-center text-white">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="font-serif text-4xl font-bold mb-4">Join Our Team</h2>
+        <p class="text-white/85 text-lg mb-8">We're always looking for passionate volunteers, skilled collaborators, and mission-driven supporters. Whether you have an afternoon or a career to offer, there's a place for you at Full Circle.</p>
+        <a href="volunteer.html" class="inline-block bg-white text-sage font-bold px-10 py-4 rounded-full hover:bg-cream transition-colors text-base shadow">Explore Volunteer Opportunities →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-adobe text-cream/80 pt-16 pb-8 px-6">
+    <div class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-9 h-9 rounded-full bg-terracotta flex items-center justify-center flex-shrink-0">
+            <span class="text-white font-bold text-xs">FC</span>
+          </div>
+          <span class="font-serif text-cream font-bold">Full Circle Santa Fe</span>
+        </div>
+        <p class="text-sm leading-relaxed text-cream/70">Restoring land. Strengthening community. Celebrating culture. A 501(c)(3) nonprofit rooted in the heart of Santa Fe.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-cream text-sm uppercase tracking-widest mb-4">Get Involved</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="volunteer.html" class="hover:text-terracotta-light transition-colors">Volunteer</a></li>
+          <li><a href="donate.html" class="hover:text-terracotta-light transition-colors">Donate</a></li>
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">Our Mission</a></li>
+          <li><a href="news.html" class="hover:text-terracotta-light transition-colors">News &amp; Updates</a></li>
+          <li><a href="our-team.html" class="hover:text-terracotta-light transition-colors">Our Team</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-cream text-sm uppercase tracking-widest mb-4">Connect</h4>
+        <ul class="space-y-2 text-sm text-cream/70">
+          <li>123 Canyon Road</li>
+          <li>Santa Fe, NM 87501</li>
+          <li class="pt-2"><a href="mailto:hello@fullcirclesantafe.org" class="hover:text-terracotta-light transition-colors">hello@fullcirclesantafe.org</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-cream text-sm uppercase tracking-widest mb-4">Our Work</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">Native Landscaping</a></li>
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">Community Networks</a></li>
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">Art &amp; Culture</a></li>
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">River Restoration</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-6 text-center text-xs text-cream/50">
+      &copy; 2025 Full Circle Santa Fe. All rights reserved. &nbsp;|&nbsp; 501(c)(3) Nonprofit &nbsp;|&nbsp; EIN: 87-XXXXXXX
+    </div>
+  </footer>
+
+</body>
+</html>

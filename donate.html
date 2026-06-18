@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donate — Full Circle Santa Fe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            terracotta: { DEFAULT: '#C2703E', light: '#D4915F', dark: '#A85A2B' },
+            sage: { DEFAULT: '#7A8B69', light: '#9AAD8A', dark: '#5C6B4F' },
+            gold: { DEFAULT: '#D4A853', light: '#E0C07A' },
+            cream: { DEFAULT: '#FAF7F2', dark: '#EDE6D9' },
+            sand: '#E8DFD1',
+            adobe: { DEFAULT: '#2D1F14', light: '#4A3728' },
+          },
+          fontFamily: {
+            serif: ['Georgia', '"Times New Roman"', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --terracotta: #C2703E; --terracotta-light: #D4915F; --terracotta-dark: #A85A2B;
+      --sage: #7A8B69; --sage-light: #9AAD8A; --sage-dark: #5C6B4F;
+      --gold: #D4A853; --gold-light: #E0C07A;
+      --cream: #FAF7F2; --cream-dark: #EDE6D9;
+      --sand: #E8DFD1; --adobe: #2D1F14; --adobe-light: #4A3728; --charcoal: #1A1A1A;
+    }
+    body { font-family: 'Inter', system-ui, sans-serif; color: var(--charcoal); }
+    h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; }
+    .hero-overlay { background: linear-gradient(to bottom, rgba(45,31,20,0.55) 0%, rgba(45,31,20,0.75) 100%); }
+    .nav-link { position:relative; }
+    .nav-link::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:2px; background:var(--terracotta); transition:width 0.3s; }
+    .nav-link:hover::after { width:100%; }
+    .amount-btn { cursor:pointer; transition: all 0.2s; }
+    .amount-btn:hover { background-color: var(--terracotta); color: white; border-color: var(--terracotta); }
+    .amount-btn.active { background-color: var(--terracotta); color: white; border-color: var(--terracotta); }
+  </style>
+</head>
+<body class="bg-cream">
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-cream shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-terracotta flex items-center justify-center flex-shrink-0">
+          <span class="text-white font-bold text-sm">FC</span>
+        </div>
+        <span class="font-serif font-bold text-adobe text-lg leading-tight hidden sm:block">Full Circle<br><span class="text-terracotta text-sm font-sans font-semibold">Santa Fe</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-adobe-light">
+        <a href="index.html" class="nav-link hover:text-terracotta transition-colors">Home</a>
+        <a href="our-mission.html" class="nav-link hover:text-terracotta transition-colors">Our Mission</a>
+        <a href="volunteer.html" class="nav-link hover:text-terracotta transition-colors">Volunteer</a>
+        <a href="news.html" class="nav-link hover:text-terracotta transition-colors">News</a>
+        <a href="our-team.html" class="nav-link hover:text-terracotta transition-colors">Our Team</a>
+        <a href="donate.html" class="nav-link text-terracotta font-semibold">Donate</a>
+        <a href="donate.html" class="ml-2 bg-terracotta text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-terracotta-dark transition-colors">Support Us</a>
+      </nav>
+      <button class="md:hidden text-adobe" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-cream border-t border-sand px-6 py-4 flex flex-col gap-3 text-sm font-medium text-adobe-light">
+      <a href="index.html" class="hover:text-terracotta">Home</a>
+      <a href="our-mission.html" class="hover:text-terracotta">Our Mission</a>
+      <a href="volunteer.html" class="hover:text-terracotta">Volunteer</a>
+      <a href="news.html" class="hover:text-terracotta">News</a>
+      <a href="our-team.html" class="hover:text-terracotta">Our Team</a>
+      <a href="donate.html" class="text-terracotta font-semibold">Donate</a>
+      <a href="donate.html" class="bg-terracotta text-white px-4 py-2 rounded-full text-center font-semibold">Support Us</a>
+    </div>
+  </header>
+
+  <main class="pt-16">
+
+    <!-- HERO -->
+    <section class="relative h-[50vh] flex items-center justify-center overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920&q=80" alt="Santa Fe landscape" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="hero-overlay absolute inset-0"></div>
+      <div class="relative z-10 text-center text-white px-6 max-w-3xl mx-auto">
+        <h1 class="font-serif text-5xl md:text-6xl font-bold mb-4">Support Our Work</h1>
+        <p class="text-white/85 text-lg md:text-xl">Your tax-deductible gift helps restore Santa Fe's land and enrich its community. Every dollar goes to work in the high desert.</p>
+      </div>
+    </section>
+
+    <!-- IMPACT STATEMENT -->
+    <section class="bg-cream py-16 px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <blockquote class="font-serif text-2xl md:text-3xl text-adobe leading-relaxed mb-6">
+          "Donations to Full Circle fund native plant restoration, community workshops, public art installations, and the volunteer programs that make all of it possible."
+        </blockquote>
+        <p class="text-adobe-light text-base leading-relaxed">Every dollar you give is an investment in Santa Fe's ecological health, its cultural vitality, and the generations who will inherit this extraordinary landscape. We steward your gift with care and transparency.</p>
+      </div>
+    </section>
+
+    <!-- DONATION TIERS -->
+    <section class="bg-cream-dark py-20 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-14">
+          <span class="text-terracotta font-semibold text-sm uppercase tracking-widest">Monthly Giving</span>
+          <h2 class="font-serif text-4xl text-adobe mt-2">Choose Your Impact Level</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Seed -->
+          <div class="bg-white border border-sand rounded-2xl p-7 flex flex-col shadow-sm">
+            <div class="text-3xl mb-3">🌱</div>
+            <div class="font-serif text-3xl text-adobe font-bold mb-1">$25<span class="text-base font-sans font-normal text-adobe-light">/mo</span></div>
+            <div class="text-sage font-bold text-sm uppercase tracking-widest mb-4">Seed</div>
+            <p class="text-adobe-light text-sm leading-relaxed mb-3 flex-1">Supports supplies for one volunteer planting shift — gloves, tools, native seed packets, and water for our stewards.</p>
+            <div class="bg-sage/10 rounded-lg px-3 py-2 text-xs text-sage font-semibold mb-5">Funds 1 volunteer shift's supplies</div>
+            <a href="#one-time" class="block text-center border border-sage text-sage font-semibold py-3 rounded-full text-sm hover:bg-sage hover:text-white transition-colors">Choose This Level</a>
+          </div>
+          <!-- Bloom - FEATURED -->
+          <div class="bg-white border-2 border-terracotta rounded-2xl p-7 flex flex-col shadow-md relative">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-terracotta text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest">Most Popular</div>
+            <div class="text-3xl mb-3">🌸</div>
+            <div class="font-serif text-3xl text-adobe font-bold mb-1">$75<span class="text-base font-sans font-normal text-adobe-light">/mo</span></div>
+            <div class="text-terracotta font-bold text-sm uppercase tracking-widest mb-4">Bloom</div>
+            <p class="text-adobe-light text-sm leading-relaxed mb-3 flex-1">Funds the procurement of native plants for our restoration sites — chamisa, Apache plume, desert willow, and more.</p>
+            <div class="bg-terracotta/10 rounded-lg px-3 py-2 text-xs text-terracotta font-semibold mb-5">Funds native plant procurement</div>
+            <a href="#one-time" class="block text-center bg-terracotta text-white font-semibold py-3 rounded-full text-sm hover:bg-terracotta-dark transition-colors">Choose This Level</a>
+          </div>
+          <!-- Canopy -->
+          <div class="bg-white border border-sand rounded-2xl p-7 flex flex-col shadow-sm">
+            <div class="text-3xl mb-3">🌳</div>
+            <div class="font-serif text-3xl text-adobe font-bold mb-1">$150<span class="text-base font-sans font-normal text-adobe-light">/mo</span></div>
+            <div class="text-gold font-bold text-sm uppercase tracking-widest mb-4">Canopy</div>
+            <p class="text-adobe-light text-sm leading-relaxed mb-3 flex-1">Sponsors a full community workshop — from expert-led native plant talks to hands-on planting days that bring neighbors together.</p>
+            <div class="bg-gold/15 rounded-lg px-3 py-2 text-xs text-gold font-semibold mb-5">Sponsors a community workshop</div>
+            <a href="#one-time" class="block text-center border border-gold text-gold font-semibold py-3 rounded-full text-sm hover:bg-gold hover:text-white transition-colors">Choose This Level</a>
+          </div>
+          <!-- Watershed -->
+          <div class="bg-white border border-sand rounded-2xl p-7 flex flex-col shadow-sm">
+            <div class="text-3xl mb-3">💧</div>
+            <div class="font-serif text-3xl text-adobe font-bold mb-1">$500+<span class="text-base font-sans font-normal text-adobe-light">/mo</span></div>
+            <div class="text-adobe font-bold text-sm uppercase tracking-widest mb-4">Watershed</div>
+            <p class="text-adobe-light text-sm leading-relaxed mb-3 flex-1">Underwrites a full restoration project site — from ecological assessment through planting, stewardship, and long-term monitoring.</p>
+            <div class="bg-adobe/10 rounded-lg px-3 py-2 text-xs text-adobe font-semibold mb-5">Underwrites a full restoration project</div>
+            <a href="#one-time" class="block text-center border border-adobe text-adobe font-semibold py-3 rounded-full text-sm hover:bg-adobe hover:text-cream transition-colors">Choose This Level</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRANSPARENCY -->
+    <section class="bg-sage py-16 px-6 text-white">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-10">
+          <h2 class="font-serif text-3xl font-bold mb-3">Where Your Money Goes</h2>
+          <p class="text-white/80 text-sm">Full Circle Santa Fe is a registered 501(c)(3) nonprofit. Donations are tax-deductible to the full extent of the law.</p>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-6 text-center">
+          <div class="bg-white/10 rounded-2xl p-7">
+            <div class="font-serif text-5xl font-bold mb-2">70%</div>
+            <div class="font-semibold text-sm uppercase tracking-widest mb-2 text-white/80">Programs</div>
+            <p class="text-white/70 text-xs leading-relaxed">Direct restoration work, native plant procurement, volunteer programs, and public art commissions.</p>
+          </div>
+          <div class="bg-white/10 rounded-2xl p-7">
+            <div class="font-serif text-5xl font-bold mb-2">20%</div>
+            <div class="font-semibold text-sm uppercase tracking-widest mb-2 text-white/80">Community Events</div>
+            <p class="text-white/70 text-xs leading-relaxed">Workshops, educational programming, community gatherings, and volunteer appreciation events.</p>
+          </div>
+          <div class="bg-white/10 rounded-2xl p-7">
+            <div class="font-serif text-5xl font-bold mb-2">10%</div>
+            <div class="font-semibold text-sm uppercase tracking-widest mb-2 text-white/80">Operations</div>
+            <p class="text-white/70 text-xs leading-relaxed">Staff, technology, and administrative costs that keep the organization running efficiently.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OTHER WAYS TO GIVE -->
+    <section class="bg-cream py-20 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="text-terracotta font-semibold text-sm uppercase tracking-widest">Other Ways to Give</span>
+          <h2 class="font-serif text-4xl text-adobe mt-2">More Ways to Support</h2>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-8">
+          <div class="bg-cream-dark border border-sand rounded-2xl p-8 text-center">
+            <div class="text-4xl mb-4">📜</div>
+            <h3 class="font-serif text-xl text-adobe mb-3">Planned Giving</h3>
+            <p class="text-adobe-light text-sm leading-relaxed">Leave a lasting legacy by including Full Circle in your estate planning. Contact us to learn about bequest opportunities.</p>
+          </div>
+          <div class="bg-cream-dark border border-sand rounded-2xl p-8 text-center">
+            <div class="text-4xl mb-4">🎁</div>
+            <h3 class="font-serif text-xl text-adobe mb-3">In-Kind Donations</h3>
+            <p class="text-adobe-light text-sm leading-relaxed">Donate native plants, tools, art supplies, or professional services. In-kind gifts are often exactly what we need most.</p>
+          </div>
+          <div class="bg-cream-dark border border-sand rounded-2xl p-8 text-center">
+            <div class="text-4xl mb-4">🏢</div>
+            <h3 class="font-serif text-xl text-adobe mb-3">Corporate Sponsorship</h3>
+            <p class="text-adobe-light text-sm leading-relaxed">Partner with Full Circle as a business sponsor and connect your brand to Santa Fe's most vibrant restoration and arts initiative.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ONE-TIME DONATION -->
+    <section id="one-time" class="bg-cream-dark py-16 px-6">
+      <div class="max-w-xl mx-auto text-center">
+        <span class="text-terracotta font-semibold text-sm uppercase tracking-widest">One-Time Gift</span>
+        <h2 class="font-serif text-3xl text-adobe mt-2 mb-8">Make a Donation Today</h2>
+        <div class="flex flex-wrap gap-3 justify-center mb-6">
+          <button class="amount-btn border-2 border-sand text-adobe font-bold px-6 py-3 rounded-full text-sm" onclick="selectAmount(this,'$10')">$10</button>
+          <button class="amount-btn border-2 border-sand text-adobe font-bold px-6 py-3 rounded-full text-sm" onclick="selectAmount(this,'$25')">$25</button>
+          <button class="amount-btn active border-2 border-terracotta text-white bg-terracotta font-bold px-6 py-3 rounded-full text-sm" onclick="selectAmount(this,'$50')">$50</button>
+          <button class="amount-btn border-2 border-sand text-adobe font-bold px-6 py-3 rounded-full text-sm" onclick="selectAmount(this,'$100')">$100</button>
+          <button class="amount-btn border-2 border-sand text-adobe font-bold px-6 py-3 rounded-full text-sm" onclick="selectAmount(this,'$250')">$250</button>
+          <button class="amount-btn border-2 border-sand text-adobe font-bold px-6 py-3 rounded-full text-sm" onclick="selectAmount(this,'custom')">Custom</button>
+        </div>
+        <div id="custom-amount" class="hidden mb-5">
+          <input type="number" placeholder="Enter amount" min="1" class="w-full px-5 py-3 rounded-xl border border-sand text-adobe text-center font-bold text-lg focus:outline-none focus:ring-2 focus:ring-terracotta" />
+        </div>
+        <button onclick="return false;" class="w-full bg-terracotta text-white font-bold py-4 rounded-full text-base hover:bg-terracotta-dark transition-colors shadow-lg mb-4">Donate Now →</button>
+        <p class="text-xs text-adobe-light/70 leading-relaxed">🔒 Secure payment processing. Full Circle Santa Fe is a 501(c)(3) nonprofit. EIN: 87-XXXXXXX. Donations are tax-deductible to the full extent of the law.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    function selectAmount(btn, val) {
+      document.querySelectorAll('.amount-btn').forEach(b => {
+        b.classList.remove('active','bg-terracotta','text-white','border-terracotta');
+        b.classList.add('border-sand','text-adobe');
+      });
+      btn.classList.add('active','bg-terracotta','text-white','border-terracotta');
+      btn.classList.remove('border-sand','text-adobe');
+      document.getElementById('custom-amount').classList.toggle('hidden', val !== 'custom');
+    }
+  </script>
+
+  <!-- FOOTER -->
+  <footer class="bg-adobe text-cream/80 pt-16 pb-8 px-6">
+    <div class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-9 h-9 rounded-full bg-terracotta flex items-center justify-center flex-shrink-0">
+            <span class="text-white font-bold text-xs">FC</span>
+          </div>
+          <span class="font-serif text-cream font-bold">Full Circle Santa Fe</span>
+        </div>
+        <p class="text-sm leading-relaxed text-cream/70">Restoring land. Strengthening community. Celebrating culture. A 501(c)(3) nonprofit rooted in the heart of Santa Fe.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-cream text-sm uppercase tracking-widest mb-4">Get Involved</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="volunteer.html" class="hover:text-terracotta-light transition-colors">Volunteer</a></li>
+          <li><a href="donate.html" class="hover:text-terracotta-light transition-colors">Donate</a></li>
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">Our Mission</a></li>
+          <li><a href="news.html" class="hover:text-terracotta-light transition-colors">News &amp; Updates</a></li>
+          <li><a href="our-team.html" class="hover:text-terracotta-light transition-colors">Our Team</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-cream text-sm uppercase tracking-widest mb-4">Connect</h4>
+        <ul class="space-y-2 text-sm text-cream/70">
+          <li>123 Canyon Road</li>
+          <li>Santa Fe, NM 87501</li>
+          <li class="pt-2"><a href="mailto:hello@fullcirclesantafe.org" class="hover:text-terracotta-light transition-colors">hello@fullcirclesantafe.org</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-cream text-sm uppercase tracking-widest mb-4">Our Work</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">Native Landscaping</a></li>
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">Community Networks</a></li>
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">Art &amp; Culture</a></li>
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">River Restoration</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-6 text-center text-xs text-cream/50">
+      &copy; 2025 Full Circle Santa Fe. All rights reserved. &nbsp;|&nbsp; 501(c)(3) Nonprofit &nbsp;|&nbsp; EIN: 87-XXXXXXX
+    </div>
+  </footer>
+
+</body>
+</html>

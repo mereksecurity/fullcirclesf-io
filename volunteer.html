@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Volunteer — Full Circle Santa Fe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            terracotta: { DEFAULT: '#C2703E', light: '#D4915F', dark: '#A85A2B' },
+            sage: { DEFAULT: '#7A8B69', light: '#9AAD8A', dark: '#5C6B4F' },
+            gold: { DEFAULT: '#D4A853', light: '#E0C07A' },
+            cream: { DEFAULT: '#FAF7F2', dark: '#EDE6D9' },
+            sand: '#E8DFD1',
+            adobe: { DEFAULT: '#2D1F14', light: '#4A3728' },
+          },
+          fontFamily: {
+            serif: ['Georgia', '"Times New Roman"', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --terracotta: #C2703E; --terracotta-light: #D4915F; --terracotta-dark: #A85A2B;
+      --sage: #7A8B69; --sage-light: #9AAD8A; --sage-dark: #5C6B4F;
+      --gold: #D4A853; --gold-light: #E0C07A;
+      --cream: #FAF7F2; --cream-dark: #EDE6D9;
+      --sand: #E8DFD1; --adobe: #2D1F14; --adobe-light: #4A3728; --charcoal: #1A1A1A;
+    }
+    body { font-family: 'Inter', system-ui, sans-serif; color: var(--charcoal); }
+    h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; }
+    .hero-overlay { background: linear-gradient(to bottom, rgba(45,31,20,0.5) 0%, rgba(45,31,20,0.72) 100%); }
+    .nav-link { position:relative; }
+    .nav-link::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:2px; background:var(--terracotta); transition:width 0.3s; }
+    .nav-link:hover::after { width:100%; }
+    input, select, textarea { background: white; }
+    input:focus, select:focus, textarea:focus { outline: none; ring: 2px; ring-color: var(--terracotta); }
+  </style>
+</head>
+<body class="bg-cream">
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-cream shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-terracotta flex items-center justify-center flex-shrink-0">
+          <span class="text-white font-bold text-sm">FC</span>
+        </div>
+        <span class="font-serif font-bold text-adobe text-lg leading-tight hidden sm:block">Full Circle<br><span class="text-terracotta text-sm font-sans font-semibold">Santa Fe</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-adobe-light">
+        <a href="index.html" class="nav-link hover:text-terracotta transition-colors">Home</a>
+        <a href="our-mission.html" class="nav-link hover:text-terracotta transition-colors">Our Mission</a>
+        <a href="volunteer.html" class="nav-link text-terracotta font-semibold">Volunteer</a>
+        <a href="news.html" class="nav-link hover:text-terracotta transition-colors">News</a>
+        <a href="our-team.html" class="nav-link hover:text-terracotta transition-colors">Our Team</a>
+        <a href="donate.html" class="nav-link hover:text-terracotta transition-colors">Donate</a>
+        <a href="donate.html" class="ml-2 bg-terracotta text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-terracotta-dark transition-colors">Support Us</a>
+      </nav>
+      <button class="md:hidden text-adobe" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-cream border-t border-sand px-6 py-4 flex flex-col gap-3 text-sm font-medium text-adobe-light">
+      <a href="index.html" class="hover:text-terracotta">Home</a>
+      <a href="our-mission.html" class="hover:text-terracotta">Our Mission</a>
+      <a href="volunteer.html" class="text-terracotta font-semibold">Volunteer</a>
+      <a href="news.html" class="hover:text-terracotta">News</a>
+      <a href="our-team.html" class="hover:text-terracotta">Our Team</a>
+      <a href="donate.html" class="hover:text-terracotta">Donate</a>
+      <a href="donate.html" class="bg-terracotta text-white px-4 py-2 rounded-full text-center font-semibold">Support Us</a>
+    </div>
+  </header>
+
+  <main class="pt-16">
+
+    <!-- HERO -->
+    <section class="relative h-[50vh] flex items-center justify-center overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1920&q=80" alt="Volunteers working outdoors" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="hero-overlay absolute inset-0"></div>
+      <div class="relative z-10 text-center text-white px-6 max-w-3xl mx-auto">
+        <h1 class="font-serif text-5xl md:text-6xl font-bold mb-4">Volunteer With Us</h1>
+        <p class="text-white/85 text-lg md:text-xl">Your time and talent help restore Santa Fe's land, strengthen its community, and celebrate its culture.</p>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="bg-cream py-16 px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="text-terracotta font-semibold text-sm uppercase tracking-widest">Get Involved</span>
+        <h2 class="font-serif text-4xl text-adobe mt-2 mb-5">Every Hand Makes a Difference</h2>
+        <p class="text-adobe-light text-lg leading-relaxed">From pulling invasive plants to painting murals, from knocking on neighbors' doors to organizing spreadsheets — Full Circle runs on the energy of volunteers who care deeply about this place. Whatever your skills, whatever your schedule, there is meaningful work here for you.</p>
+      </div>
+    </section>
+
+    <!-- OPPORTUNITY CARDS -->
+    <section class="bg-cream-dark py-16 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="font-serif text-3xl text-adobe">Volunteer Opportunities</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-8">
+          <!-- Landscape Steward -->
+          <div class="bg-white border border-sand rounded-2xl p-8 shadow-sm">
+            <div class="text-4xl mb-4">🌿</div>
+            <h3 class="font-serif text-xl text-adobe mb-3">Landscape Steward</h3>
+            <p class="text-adobe-light text-sm leading-relaxed mb-4">Work side-by-side with our restoration team to plant native species, remove invasive plants, and maintain restored sites across Santa Fe. No experience necessary — just a willingness to dig in.</p>
+            <div class="flex items-center gap-2 text-sm">
+              <span class="w-5 h-5 rounded-full bg-sage/20 flex items-center justify-center text-xs">⏱</span>
+              <span class="text-sage font-semibold">Every other Saturday, 3–4 hours</span>
+            </div>
+          </div>
+          <!-- Community Outreach -->
+          <div class="bg-white border border-sand rounded-2xl p-8 shadow-sm">
+            <div class="text-4xl mb-4">🤝</div>
+            <h3 class="font-serif text-xl text-adobe mb-3">Community Outreach</h3>
+            <p class="text-adobe-light text-sm leading-relaxed mb-4">Help us connect with neighbors, community organizations, and local businesses. Share our story, gather input on upcoming projects, and recruit new volunteers and supporters.</p>
+            <div class="flex items-center gap-2 text-sm">
+              <span class="w-5 h-5 rounded-full bg-terracotta/15 flex items-center justify-center text-xs">⏱</span>
+              <span class="text-terracotta font-semibold">Flexible, 2–5 hours/week</span>
+            </div>
+          </div>
+          <!-- Art Installation -->
+          <div class="bg-white border border-sand rounded-2xl p-8 shadow-sm">
+            <div class="text-4xl mb-4">🎨</div>
+            <h3 class="font-serif text-xl text-adobe mb-3">Art Installation Assistant</h3>
+            <p class="text-adobe-light text-sm leading-relaxed mb-4">Support our Creative Director and local artists in preparing and installing public art works. Help with site preparation, logistics, materials, and community events around installations.</p>
+            <div class="flex items-center gap-2 text-sm">
+              <span class="w-5 h-5 rounded-full bg-gold/25 flex items-center justify-center text-xs">⏱</span>
+              <span class="text-gold font-semibold">Project-based, 1–2 weekends</span>
+            </div>
+          </div>
+          <!-- Admin Support -->
+          <div class="bg-white border border-sand rounded-2xl p-8 shadow-sm">
+            <div class="text-4xl mb-4">📋</div>
+            <h3 class="font-serif text-xl text-adobe mb-3">Administrative Support</h3>
+            <p class="text-adobe-light text-sm leading-relaxed mb-4">Help keep our small team running smoothly with data entry, grant writing assistance, social media support, donor communications, and event coordination.</p>
+            <div class="flex items-center gap-2 text-sm">
+              <span class="w-5 h-5 rounded-full bg-sage/20 flex items-center justify-center text-xs">⏱</span>
+              <span class="text-sage font-semibold">Remote, 3–5 hours/week</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIGN-UP FORM -->
+    <section class="bg-cream py-20 px-6">
+      <div class="max-w-3xl mx-auto">
+        <div class="bg-cream-dark border border-sand rounded-2xl p-10 shadow-sm">
+          <div class="text-center mb-10">
+            <span class="text-terracotta font-semibold text-sm uppercase tracking-widest">Sign Up</span>
+            <h2 class="font-serif text-3xl text-adobe mt-2">Ready to Volunteer?</h2>
+            <p class="text-adobe-light mt-3 text-sm">Fill out the form below and our volunteer coordinator will reach out within a few days.</p>
+          </div>
+          <form onsubmit="return false;" class="space-y-6">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-adobe text-sm font-semibold mb-2">First Name <span class="text-terracotta">*</span></label>
+                <input type="text" placeholder="Maria" class="w-full px-4 py-3 rounded-xl border border-sand text-sm text-adobe focus:outline-none focus:ring-2 focus:ring-terracotta" />
+              </div>
+              <div>
+                <label class="block text-adobe text-sm font-semibold mb-2">Last Name <span class="text-terracotta">*</span></label>
+                <input type="text" placeholder="Gonzalez" class="w-full px-4 py-3 rounded-xl border border-sand text-sm text-adobe focus:outline-none focus:ring-2 focus:ring-terracotta" />
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-adobe text-sm font-semibold mb-2">Email Address <span class="text-terracotta">*</span></label>
+                <input type="email" placeholder="maria@example.com" class="w-full px-4 py-3 rounded-xl border border-sand text-sm text-adobe focus:outline-none focus:ring-2 focus:ring-terracotta" />
+              </div>
+              <div>
+                <label class="block text-adobe text-sm font-semibold mb-2">Phone Number</label>
+                <input type="tel" placeholder="(505) 555-0100" class="w-full px-4 py-3 rounded-xl border border-sand text-sm text-adobe focus:outline-none focus:ring-2 focus:ring-terracotta" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-adobe text-sm font-semibold mb-3">Areas of Interest <span class="text-terracotta">*</span></label>
+              <div class="grid sm:grid-cols-2 gap-3">
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="checkbox" class="w-4 h-4 accent-terracotta rounded" />
+                  <span class="text-adobe-light text-sm">🌿 Landscaping</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="checkbox" class="w-4 h-4 accent-terracotta rounded" />
+                  <span class="text-adobe-light text-sm">🤝 Community Outreach</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="checkbox" class="w-4 h-4 accent-terracotta rounded" />
+                  <span class="text-adobe-light text-sm">🎨 Art Projects</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="checkbox" class="w-4 h-4 accent-terracotta rounded" />
+                  <span class="text-adobe-light text-sm">📋 Administrative</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="checkbox" class="w-4 h-4 accent-terracotta rounded" />
+                  <span class="text-adobe-light text-sm">🎉 Events</span>
+                </label>
+              </div>
+            </div>
+            <div>
+              <label class="block text-adobe text-sm font-semibold mb-2">Availability</label>
+              <select class="w-full px-4 py-3 rounded-xl border border-sand text-sm text-adobe focus:outline-none focus:ring-2 focus:ring-terracotta">
+                <option value="">Select your availability...</option>
+                <option>Weekdays</option>
+                <option>Weekends</option>
+                <option>Evenings</option>
+                <option>Flexible</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-adobe text-sm font-semibold mb-2">Tell us about yourself</label>
+              <textarea rows="5" placeholder="Share any relevant experience, skills, or what draws you to Full Circle's work..." class="w-full px-4 py-3 rounded-xl border border-sand text-sm text-adobe focus:outline-none focus:ring-2 focus:ring-terracotta resize-none"></textarea>
+            </div>
+            <div class="text-center pt-2">
+              <button type="submit" class="bg-terracotta text-white font-bold px-12 py-4 rounded-full hover:bg-terracotta-dark transition-colors shadow text-base">Submit Application</button>
+              <p class="text-xs text-adobe-light/70 mt-4">We'll be in touch within 2–3 business days. Thank you for your interest!</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-adobe text-cream/80 pt-16 pb-8 px-6">
+    <div class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-9 h-9 rounded-full bg-terracotta flex items-center justify-center flex-shrink-0">
+            <span class="text-white font-bold text-xs">FC</span>
+          </div>
+          <span class="font-serif text-cream font-bold">Full Circle Santa Fe</span>
+        </div>
+        <p class="text-sm leading-relaxed text-cream/70">Restoring land. Strengthening community. Celebrating culture. A 501(c)(3) nonprofit rooted in the heart of Santa Fe.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-cream text-sm uppercase tracking-widest mb-4">Get Involved</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="volunteer.html" class="hover:text-terracotta-light transition-colors">Volunteer</a></li>
+          <li><a href="donate.html" class="hover:text-terracotta-light transition-colors">Donate</a></li>
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">Our Mission</a></li>
+          <li><a href="news.html" class="hover:text-terracotta-light transition-colors">News &amp; Updates</a></li>
+          <li><a href="our-team.html" class="hover:text-terracotta-light transition-colors">Our Team</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-cream text-sm uppercase tracking-widest mb-4">Connect</h4>
+        <ul class="space-y-2 text-sm text-cream/70">
+          <li>123 Canyon Road</li>
+          <li>Santa Fe, NM 87501</li>
+          <li class="pt-2"><a href="mailto:hello@fullcirclesantafe.org" class="hover:text-terracotta-light transition-colors">hello@fullcirclesantafe.org</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-cream text-sm uppercase tracking-widest mb-4">Our Work</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">Native Landscaping</a></li>
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">Community Networks</a></li>
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">Art &amp; Culture</a></li>
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">River Restoration</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-6 text-center text-xs text-cream/50">
+      &copy; 2025 Full Circle Santa Fe. All rights reserved. &nbsp;|&nbsp; 501(c)(3) Nonprofit &nbsp;|&nbsp; EIN: 87-XXXXXXX
+    </div>
+  </footer>
+
+</body>
+</html>

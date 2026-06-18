@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Mission — Full Circle Santa Fe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            terracotta: { DEFAULT: '#C2703E', light: '#D4915F', dark: '#A85A2B' },
+            sage: { DEFAULT: '#7A8B69', light: '#9AAD8A', dark: '#5C6B4F' },
+            gold: { DEFAULT: '#D4A853', light: '#E0C07A' },
+            cream: { DEFAULT: '#FAF7F2', dark: '#EDE6D9' },
+            sand: '#E8DFD1',
+            adobe: { DEFAULT: '#2D1F14', light: '#4A3728' },
+          },
+          fontFamily: {
+            serif: ['Georgia', '"Times New Roman"', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --terracotta: #C2703E; --terracotta-light: #D4915F; --terracotta-dark: #A85A2B;
+      --sage: #7A8B69; --sage-light: #9AAD8A; --sage-dark: #5C6B4F;
+      --gold: #D4A853; --gold-light: #E0C07A;
+      --cream: #FAF7F2; --cream-dark: #EDE6D9;
+      --sand: #E8DFD1; --adobe: #2D1F14; --adobe-light: #4A3728; --charcoal: #1A1A1A;
+    }
+    body { font-family: 'Inter', system-ui, sans-serif; color: var(--charcoal); }
+    h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; }
+    .hero-overlay { background: linear-gradient(to bottom, rgba(45,31,20,0.5) 0%, rgba(45,31,20,0.7) 100%); }
+    .nav-link::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:2px; background:var(--terracotta); transition:width 0.3s; }
+    .nav-link:hover::after { width:100%; }
+    .nav-link { position:relative; }
+  </style>
+</head>
+<body class="bg-cream">
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-cream shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-terracotta flex items-center justify-center flex-shrink-0">
+          <span class="text-white font-bold text-sm">FC</span>
+        </div>
+        <span class="font-serif font-bold text-adobe text-lg leading-tight hidden sm:block">Full Circle<br><span class="text-terracotta text-sm font-sans font-semibold">Santa Fe</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-adobe-light">
+        <a href="index.html" class="nav-link hover:text-terracotta transition-colors">Home</a>
+        <a href="our-mission.html" class="nav-link text-terracotta font-semibold">Our Mission</a>
+        <a href="volunteer.html" class="nav-link hover:text-terracotta transition-colors">Volunteer</a>
+        <a href="news.html" class="nav-link hover:text-terracotta transition-colors">News</a>
+        <a href="our-team.html" class="nav-link hover:text-terracotta transition-colors">Our Team</a>
+        <a href="donate.html" class="nav-link hover:text-terracotta transition-colors">Donate</a>
+        <a href="donate.html" class="ml-2 bg-terracotta text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-terracotta-dark transition-colors">Support Us</a>
+      </nav>
+      <button class="md:hidden text-adobe" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-cream border-t border-sand px-6 py-4 flex flex-col gap-3 text-sm font-medium text-adobe-light">
+      <a href="index.html" class="hover:text-terracotta">Home</a>
+      <a href="our-mission.html" class="text-terracotta font-semibold">Our Mission</a>
+      <a href="volunteer.html" class="hover:text-terracotta">Volunteer</a>
+      <a href="news.html" class="hover:text-terracotta">News</a>
+      <a href="our-team.html" class="hover:text-terracotta">Our Team</a>
+      <a href="donate.html" class="hover:text-terracotta">Donate</a>
+      <a href="donate.html" class="bg-terracotta text-white px-4 py-2 rounded-full text-center font-semibold">Support Us</a>
+    </div>
+  </header>
+
+  <main class="pt-16">
+
+    <!-- HERO -->
+    <section class="relative h-[50vh] flex items-center justify-center overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80" alt="Santa Fe mountain landscape" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="hero-overlay absolute inset-0"></div>
+      <div class="relative z-10 text-center text-white px-6 max-w-3xl mx-auto">
+        <h1 class="font-serif text-5xl md:text-6xl font-bold mb-4">Our Mission</h1>
+        <p class="text-gold font-semibold text-lg md:text-xl">Restoring Land. Strengthening Community. Celebrating Culture.</p>
+      </div>
+    </section>
+
+    <!-- FULL CIRCLE VISION -->
+    <section class="bg-cream py-20 px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="text-terracotta font-semibold text-sm uppercase tracking-widest">The Philosophy</span>
+        <h2 class="font-serif text-4xl text-adobe mt-3 mb-6">The Full Circle Vision</h2>
+        <p class="text-adobe-light text-lg leading-relaxed mb-6">Our name is a statement of belief. In the natural world, everything moves in circles — seasons, water cycles, the relationships between plants, pollinators, and the soil beneath our feet. "Full Circle" reflects our conviction that healthy land, vibrant community, and living culture are not separate goals but one seamless whole.</p>
+        <p class="text-adobe-light text-lg leading-relaxed">When we restore a native meadow, we are also creating a gathering place. When we commission a public sculpture, we are also honoring ecological wisdom. When we bring neighbors together to plant seeds, we are planting something deeper — a shared sense of belonging to this extraordinary place called Santa Fe.</p>
+      </div>
+    </section>
+
+    <!-- ALTERNATING SECTIONS -->
+
+    <!-- 1: Ecological Consciousness -->
+    <section class="bg-cream-dark py-20 px-6">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+        <div>
+          <span class="text-sage font-semibold text-sm uppercase tracking-widest">Pillar One</span>
+          <h2 class="font-serif text-4xl text-adobe mt-2 mb-5">Ecological Consciousness</h2>
+          <p class="text-adobe-light leading-relaxed mb-5">Santa Fe sits at 7,000 feet in the high Chihuahuan Desert — an ecosystem of remarkable resilience and extraordinary fragility. Decades of development, drought, and invasive species have degraded native habitats that took millennia to form. Full Circle works to reverse this damage, one planting site at a time.</p>
+          <p class="text-adobe-light leading-relaxed mb-5">We specialize in native plant restoration: chamisa, Apache plume, four-wing saltbush, desert willow, and dozens of other species that evolved here and belong here. Native plants use a fraction of the water demanded by conventional landscaping — a critical advantage in an era of deepening drought across the Southwest.</p>
+          <p class="text-adobe-light leading-relaxed">Our ecological work is guided by partnerships with the University of New Mexico, the New Mexico Native Plant Society, and local master gardeners who share our commitment to place-based conservation.</p>
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-lg">
+          <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80" alt="Native plant restoration" class="w-full h-80 md:h-96 object-cover" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 2: The Santa Fe Difference -->
+    <section class="bg-cream py-20 px-6">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+        <div class="md:order-2">
+          <span class="text-terracotta font-semibold text-sm uppercase tracking-widest">Pillar Two</span>
+          <h2 class="font-serif text-4xl text-adobe mt-2 mb-5">The Santa Fe Difference</h2>
+          <p class="text-adobe-light leading-relaxed mb-5">Santa Fe is unlike any other American city. Home to one of the world's great concentrations of working artists, a living Pueblo cultural tradition thousands of years deep, and a multicultural heritage woven from Indigenous, Spanish, Mexican, and Anglo threads — this place demands an approach to community work that honors its full complexity.</p>
+          <p class="text-adobe-light leading-relaxed mb-5">Full Circle never imposes a generic template on our community partnerships. We listen first. We ask: What matters here? Whose stories need to be told? What does this neighborhood need from its public spaces? The answers shape every project we undertake.</p>
+          <p class="text-adobe-light leading-relaxed">This commitment to genuine collaboration is what sets Full Circle apart — and why our projects earn lasting community ownership long after the planting is done and the scaffolding comes down.</p>
+        </div>
+        <div class="md:order-1 rounded-2xl overflow-hidden shadow-lg">
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80" alt="Community gathering" class="w-full h-80 md:h-96 object-cover" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 3: The Santa Fe River -->
+    <section class="bg-cream-dark py-20 px-6">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+        <div>
+          <span class="text-gold font-semibold text-sm uppercase tracking-widest">Flagship Project</span>
+          <h2 class="font-serif text-4xl text-adobe mt-2 mb-5">The Santa Fe River</h2>
+          <p class="text-adobe-light leading-relaxed mb-5">The Santa Fe River was once a vital riparian corridor — a ribbon of life threading through the high desert, sustaining cottonwood bosques, birds, amphibians, and the communities that settled along its banks. Today it runs dry for most of the year, its banks eroded, its native vegetation largely gone.</p>
+          <p class="text-adobe-light leading-relaxed mb-5">Our multi-year River Restoration Initiative is rebuilding this living corridor stretch by stretch. We work in concert with the City of Santa Fe, the Santa Fe Watershed Association, and dozens of volunteer stewards to reestablish native riparian species and stabilize degraded banks.</p>
+          <p class="text-adobe-light leading-relaxed">Phase 2 is now complete. We are currently raising funds for Phase 3, which will extend our work to the upper watershed and install the first of several public art pieces celebrating the river's history and ecological significance.</p>
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-lg">
+          <img src="https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?w=800&q=80" alt="River landscape" class="w-full h-80 md:h-96 object-cover" />
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR APPROACH -->
+    <section class="bg-cream py-20 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-14">
+          <span class="text-terracotta font-semibold text-sm uppercase tracking-widest">How We Work</span>
+          <h2 class="font-serif text-4xl text-adobe mt-2">Our Approach</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-sage/10 border border-sage/30 rounded-2xl p-8 text-center">
+            <div class="w-14 h-14 rounded-full bg-sage flex items-center justify-center mx-auto mb-5">
+              <span class="text-white text-2xl">🌱</span>
+            </div>
+            <h3 class="font-serif text-2xl text-adobe mb-3">Restore</h3>
+            <p class="text-adobe-light text-sm leading-relaxed">We assess each site's ecological history and design restoration plans grounded in native plant science, traditional land knowledge, and on-the-ground community input.</p>
+          </div>
+          <div class="bg-gold/10 border border-gold/40 rounded-2xl p-8 text-center">
+            <div class="w-14 h-14 rounded-full bg-gold flex items-center justify-center mx-auto mb-5">
+              <span class="text-white text-2xl">🛡️</span>
+            </div>
+            <h3 class="font-serif text-2xl text-adobe mb-3">Preserve</h3>
+            <p class="text-adobe-light text-sm leading-relaxed">Restoration is just the beginning. We train community stewards, establish long-term monitoring programs, and work with city agencies to ensure lasting protection of every site we touch.</p>
+          </div>
+          <div class="bg-terracotta/10 border border-terracotta/30 rounded-2xl p-8 text-center">
+            <div class="w-14 h-14 rounded-full bg-terracotta flex items-center justify-center mx-auto mb-5">
+              <span class="text-white text-2xl">🔗</span>
+            </div>
+            <h3 class="font-serif text-2xl text-adobe mb-3">Connect</h3>
+            <p class="text-adobe-light text-sm leading-relaxed">We weave restored landscapes into the fabric of community life — through public art, educational programming, neighborhood events, and partnerships with schools and cultural institutions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="bg-adobe py-16 px-6 text-center text-white">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="font-serif text-4xl font-bold mb-4">Join Our Mission</h2>
+        <p class="text-cream/80 text-lg mb-8">The land needs your hands. The community needs your voice. Come be part of something that will outlast all of us.</p>
+        <a href="volunteer.html" class="inline-block bg-terracotta text-white font-bold px-10 py-4 rounded-full hover:bg-terracotta-dark transition-colors text-base shadow-lg">Get Involved Today →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-adobe text-cream/80 pt-16 pb-8 px-6">
+    <div class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-9 h-9 rounded-full bg-terracotta flex items-center justify-center flex-shrink-0">
+            <span class="text-white font-bold text-xs">FC</span>
+          </div>
+          <span class="font-serif text-cream font-bold">Full Circle Santa Fe</span>
+        </div>
+        <p class="text-sm leading-relaxed text-cream/70">Restoring land. Strengthening community. Celebrating culture. A 501(c)(3) nonprofit rooted in the heart of Santa Fe.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-cream text-sm uppercase tracking-widest mb-4">Get Involved</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="volunteer.html" class="hover:text-terracotta-light transition-colors">Volunteer</a></li>
+          <li><a href="donate.html" class="hover:text-terracotta-light transition-colors">Donate</a></li>
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">Our Mission</a></li>
+          <li><a href="news.html" class="hover:text-terracotta-light transition-colors">News &amp; Updates</a></li>
+          <li><a href="our-team.html" class="hover:text-terracotta-light transition-colors">Our Team</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-cream text-sm uppercase tracking-widest mb-4">Connect</h4>
+        <ul class="space-y-2 text-sm text-cream/70">
+          <li>123 Canyon Road</li>
+          <li>Santa Fe, NM 87501</li>
+          <li class="pt-2"><a href="mailto:hello@fullcirclesantafe.org" class="hover:text-terracotta-light transition-colors">hello@fullcirclesantafe.org</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-cream text-sm uppercase tracking-widest mb-4">Our Work</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">Native Landscaping</a></li>
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">Community Networks</a></li>
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">Art &amp; Culture</a></li>
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">River Restoration</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-6 text-center text-xs text-cream/50">
+      &copy; 2025 Full Circle Santa Fe. All rights reserved. &nbsp;|&nbsp; 501(c)(3) Nonprofit &nbsp;|&nbsp; EIN: 87-XXXXXXX
+    </div>
+  </footer>
+
+</body>
+</html>

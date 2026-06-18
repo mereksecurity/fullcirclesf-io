@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News &amp; Updates — Full Circle Santa Fe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            terracotta: { DEFAULT: '#C2703E', light: '#D4915F', dark: '#A85A2B' },
+            sage: { DEFAULT: '#7A8B69', light: '#9AAD8A', dark: '#5C6B4F' },
+            gold: { DEFAULT: '#D4A853', light: '#E0C07A' },
+            cream: { DEFAULT: '#FAF7F2', dark: '#EDE6D9' },
+            sand: '#E8DFD1',
+            adobe: { DEFAULT: '#2D1F14', light: '#4A3728' },
+          },
+          fontFamily: {
+            serif: ['Georgia', '"Times New Roman"', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --terracotta: #C2703E; --terracotta-light: #D4915F; --terracotta-dark: #A85A2B;
+      --sage: #7A8B69; --sage-light: #9AAD8A; --sage-dark: #5C6B4F;
+      --gold: #D4A853; --gold-light: #E0C07A;
+      --cream: #FAF7F2; --cream-dark: #EDE6D9;
+      --sand: #E8DFD1; --adobe: #2D1F14; --adobe-light: #4A3728; --charcoal: #1A1A1A;
+    }
+    body { font-family: 'Inter', system-ui, sans-serif; color: var(--charcoal); }
+    h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; }
+    .hero-overlay { background: linear-gradient(to bottom, rgba(45,31,20,0.5) 0%, rgba(45,31,20,0.72) 100%); }
+    .nav-link { position:relative; }
+    .nav-link::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:2px; background:var(--terracotta); transition:width 0.3s; }
+    .nav-link:hover::after { width:100%; }
+    .news-card:hover { transform: translateY(-3px); transition: transform 0.3s ease; }
+  </style>
+</head>
+<body class="bg-cream">
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-cream shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-terracotta flex items-center justify-center flex-shrink-0">
+          <span class="text-white font-bold text-sm">FC</span>
+        </div>
+        <span class="font-serif font-bold text-adobe text-lg leading-tight hidden sm:block">Full Circle<br><span class="text-terracotta text-sm font-sans font-semibold">Santa Fe</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-adobe-light">
+        <a href="index.html" class="nav-link hover:text-terracotta transition-colors">Home</a>
+        <a href="our-mission.html" class="nav-link hover:text-terracotta transition-colors">Our Mission</a>
+        <a href="volunteer.html" class="nav-link hover:text-terracotta transition-colors">Volunteer</a>
+        <a href="news.html" class="nav-link text-terracotta font-semibold">News</a>
+        <a href="our-team.html" class="nav-link hover:text-terracotta transition-colors">Our Team</a>
+        <a href="donate.html" class="nav-link hover:text-terracotta transition-colors">Donate</a>
+        <a href="donate.html" class="ml-2 bg-terracotta text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-terracotta-dark transition-colors">Support Us</a>
+      </nav>
+      <button class="md:hidden text-adobe" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-cream border-t border-sand px-6 py-4 flex flex-col gap-3 text-sm font-medium text-adobe-light">
+      <a href="index.html" class="hover:text-terracotta">Home</a>
+      <a href="our-mission.html" class="hover:text-terracotta">Our Mission</a>
+      <a href="volunteer.html" class="hover:text-terracotta">Volunteer</a>
+      <a href="news.html" class="text-terracotta font-semibold">News</a>
+      <a href="our-team.html" class="hover:text-terracotta">Our Team</a>
+      <a href="donate.html" class="hover:text-terracotta">Donate</a>
+      <a href="donate.html" class="bg-terracotta text-white px-4 py-2 rounded-full text-center font-semibold">Support Us</a>
+    </div>
+  </header>
+
+  <main class="pt-16">
+
+    <!-- HERO -->
+    <section class="relative h-[40vh] flex items-center justify-center overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=1920&q=80" alt="Santa Fe art" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="hero-overlay absolute inset-0"></div>
+      <div class="relative z-10 text-center text-white px-6 max-w-3xl mx-auto">
+        <h1 class="font-serif text-5xl md:text-6xl font-bold mb-4">News &amp; Updates</h1>
+        <p class="text-white/85 text-lg">Stories from the field, community milestones, and the latest from Full Circle Santa Fe.</p>
+      </div>
+    </section>
+
+    <!-- NEWS GRID -->
+    <section class="bg-cream py-20 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <!-- Post 1 -->
+          <article class="news-card bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80" alt="Spring planting" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div class="p-7 flex flex-col flex-1">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="bg-sage/15 text-sage text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Restoration</span>
+                <span class="text-adobe-light/60 text-xs">May 15, 2025</span>
+              </div>
+              <h3 class="font-serif text-lg text-adobe mb-2 leading-snug">Spring Planting Season Kicks Off at Acequia Madre</h3>
+              <p class="text-adobe-light text-sm leading-relaxed flex-1">Volunteers gathered this spring to plant over 200 native species along the historic Acequia Madre waterway, restoring a vital riparian corridor through the heart of the city.</p>
+              <a href="#" class="mt-4 text-terracotta text-sm font-semibold hover:underline">Read More →</a>
+            </div>
+          </article>
+
+          <!-- Post 2 -->
+          <article class="news-card bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=80" alt="Mural project" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div class="p-7 flex flex-col flex-1">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="bg-terracotta/10 text-terracotta text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Community</span>
+                <span class="text-adobe-light/60 text-xs">April 28, 2025</span>
+              </div>
+              <h3 class="font-serif text-lg text-adobe mb-2 leading-snug">Community Mural Project Transforms Downtown Alley</h3>
+              <p class="text-adobe-light text-sm leading-relaxed flex-1">Local artists and residents collaborated to create a stunning mural celebrating Santa Fe's multicultural heritage, turning a neglected alleyway into a beloved neighborhood landmark.</p>
+              <a href="#" class="mt-4 text-terracotta text-sm font-semibold hover:underline">Read More →</a>
+            </div>
+          </article>
+
+          <!-- Post 3 -->
+          <article class="news-card bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1531913764164-f85c52e6e654?w=600&q=80" alt="Public sculpture" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div class="p-7 flex flex-col flex-1">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="bg-gold/20 text-gold text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Art &amp; Culture</span>
+                <span class="text-adobe-light/60 text-xs">April 10, 2025</span>
+              </div>
+              <h3 class="font-serif text-lg text-adobe mb-2 leading-snug">New Public Sculpture Installed at Railyard Park</h3>
+              <p class="text-adobe-light text-sm leading-relaxed flex-1">Full Circle's latest art installation — a series of hand-forged steel agave sculptures — now graces the Railyard, drawing visitors into a contemplation of the desert landscape that surrounds us.</p>
+              <a href="#" class="mt-4 text-terracotta text-sm font-semibold hover:underline">Read More →</a>
+            </div>
+          </article>
+
+          <!-- Post 4 -->
+          <article class="news-card bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="River restoration" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div class="p-7 flex flex-col flex-1">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="bg-sage/15 text-sage text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Restoration</span>
+                <span class="text-adobe-light/60 text-xs">March 22, 2025</span>
+              </div>
+              <h3 class="font-serif text-lg text-adobe mb-2 leading-snug">Santa Fe River Restoration: Phase 2 Complete</h3>
+              <p class="text-adobe-light text-sm leading-relaxed flex-1">We're proud to announce the successful completion of Phase 2 of our Santa Fe River corridor restoration, with over 400 native plants established and critical erosion control measures in place.</p>
+              <a href="#" class="mt-4 text-terracotta text-sm font-semibold hover:underline">Read More →</a>
+            </div>
+          </article>
+
+          <!-- Post 5 -->
+          <article class="news-card bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&q=80" alt="Volunteers" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div class="p-7 flex flex-col flex-1">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="bg-adobe/10 text-adobe text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Volunteer</span>
+                <span class="text-adobe-light/60 text-xs">March 5, 2025</span>
+              </div>
+              <h3 class="font-serif text-lg text-adobe mb-2 leading-snug">Volunteer Spotlight: A Season of Service</h3>
+              <p class="text-adobe-light text-sm leading-relaxed flex-1">Meet the dedicated volunteers who gave their time, expertise, and energy to transform Santa Fe's public spaces — and discover what keeps them coming back season after season.</p>
+              <a href="#" class="mt-4 text-terracotta text-sm font-semibold hover:underline">Read More →</a>
+            </div>
+          </article>
+
+          <!-- Post 6 -->
+          <article class="news-card bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="Annual gala" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div class="p-7 flex flex-col flex-1">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="bg-terracotta/10 text-terracotta text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Community</span>
+                <span class="text-adobe-light/60 text-xs">February 18, 2025</span>
+              </div>
+              <h3 class="font-serif text-lg text-adobe mb-2 leading-snug">Annual Gala Raises $42,000 for Restoration Programs</h3>
+              <p class="text-adobe-light text-sm leading-relaxed flex-1">Our annual fundraising gala brought together over 150 community supporters for an evening of art, food, and mission — raising $42,000 to fund our 2025 restoration and public art programs.</p>
+              <a href="#" class="mt-4 text-terracotta text-sm font-semibold hover:underline">Read More →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="bg-terracotta py-16 px-6 text-white text-center">
+      <div class="max-w-xl mx-auto">
+        <h2 class="font-serif text-3xl font-bold mb-3">Never Miss an Update</h2>
+        <p class="text-white/85 mb-8">Subscribe to our newsletter for project updates, volunteer opportunities, and community stories delivered monthly.</p>
+        <form class="flex gap-3" onsubmit="return false;">
+          <input type="email" placeholder="Your email address" class="flex-1 px-5 py-3 rounded-full border border-white/30 bg-white/20 placeholder-white/60 text-white text-sm focus:outline-none focus:ring-2 focus:ring-white" />
+          <button type="submit" class="bg-white text-terracotta px-6 py-3 rounded-full font-bold text-sm hover:bg-cream transition-colors whitespace-nowrap">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-adobe text-cream/80 pt-16 pb-8 px-6">
+    <div class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-9 h-9 rounded-full bg-terracotta flex items-center justify-center flex-shrink-0">
+            <span class="text-white font-bold text-xs">FC</span>
+          </div>
+          <span class="font-serif text-cream font-bold">Full Circle Santa Fe</span>
+        </div>
+        <p class="text-sm leading-relaxed text-cream/70">Restoring land. Strengthening community. Celebrating culture. A 501(c)(3) nonprofit rooted in the heart of Santa Fe.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-cream text-sm uppercase tracking-widest mb-4">Get Involved</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="volunteer.html" class="hover:text-terracotta-light transition-colors">Volunteer</a></li>
+          <li><a href="donate.html" class="hover:text-terracotta-light transition-colors">Donate</a></li>
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">Our Mission</a></li>
+          <li><a href="news.html" class="hover:text-terracotta-light transition-colors">News &amp; Updates</a></li>
+          <li><a href="our-team.html" class="hover:text-terracotta-light transition-colors">Our Team</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-cream text-sm uppercase tracking-widest mb-4">Connect</h4>
+        <ul class="space-y-2 text-sm text-cream/70">
+          <li>123 Canyon Road</li>
+          <li>Santa Fe, NM 87501</li>
+          <li class="pt-2"><a href="mailto:hello@fullcirclesantafe.org" class="hover:text-terracotta-light transition-colors">hello@fullcirclesantafe.org</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-cream text-sm uppercase tracking-widest mb-4">Our Work</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">Native Landscaping</a></li>
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">Community Networks</a></li>
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">Art &amp; Culture</a></li>
+          <li><a href="our-mission.html" class="hover:text-terracotta-light transition-colors">River Restoration</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-6 text-center text-xs text-cream/50">
+      &copy; 2025 Full Circle Santa Fe. All rights reserved. &nbsp;|&nbsp; 501(c)(3) Nonprofit &nbsp;|&nbsp; EIN: 87-XXXXXXX
+    </div>
+  </footer>
+
+</body>
+</html>
