@@ -64,6 +64,10 @@
     [data-delay="6"] { transition-delay:0.9s; }
     .card-hover { transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease; }
     .card-hover:hover { transform:translateY(-6px); box-shadow:0 20px 40px rgba(0,0,0,0.08); }
+/* CTA buttons — visual styles applied ONLY after animation fires */
+.cta-primary { display:inline-block; text-align:center; }
+.is-visible .cta-primary { background:#fff; color:#C2703E; border-radius:9999px; box-shadow:0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px -1px rgba(0,0,0,0.1); transition:background 0.15s; }
+.is-visible .cta-primary:hover { background:#FAF7F2; }
     .parallax-img { will-change:transform; }
     .img-reveal { overflow:hidden; }
     .img-reveal img { transition: transform 1.4s cubic-bezier(0.16,1,0.3,1); transform: scale(1.08); }
@@ -230,7 +234,7 @@
         <p class="text-white/85 mb-8">Subscribe to our newsletter for project updates, volunteer opportunities, and community stories delivered monthly.</p>
         <form class="flex gap-3" onsubmit="return false;">
           <input type="email" placeholder="Your email address" class="flex-1 px-5 py-3 rounded-full border border-white/30 bg-white/20 placeholder-white/60 text-white text-sm focus:outline-none focus:ring-2 focus:ring-white" />
-          <button type="submit" class="bg-white text-terracotta px-6 py-3 rounded-full font-bold text-sm hover:bg-cream transition-colors whitespace-nowrap">Subscribe</button>
+          <button type="submit" class="cta-primary px-6 py-3 font-bold text-sm whitespace-nowrap">Subscribe</button>
         </form>
       </div>
     </section>

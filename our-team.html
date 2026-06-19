@@ -63,6 +63,10 @@
     [data-delay="6"] { transition-delay:0.9s; }
     .card-hover { transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease; }
     .card-hover:hover { transform:translateY(-6px); box-shadow:0 20px 40px rgba(0,0,0,0.08); }
+/* CTA buttons — visual styles applied ONLY after animation fires */
+.cta-primary-sage { display:inline-block; text-align:center; }
+.is-visible .cta-primary-sage { background:#fff; color:#5C6B4F; border-radius:9999px; box-shadow:0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px -1px rgba(0,0,0,0.1); transition:background 0.15s; }
+.is-visible .cta-primary-sage:hover { background:#FAF7F2; }
     .parallax-img { will-change:transform; }
     .img-reveal { overflow:hidden; }
     .img-reveal img { transition: transform 1.4s cubic-bezier(0.16,1,0.3,1); transform: scale(1.08); }
@@ -209,7 +213,7 @@
       <div class="max-w-2xl mx-auto" data-animate="fade">
         <h2 class="font-serif text-4xl font-bold mb-4">Join Our Team</h2>
         <p class="text-white/85 text-lg mb-8">We're always looking for passionate volunteers, skilled collaborators, and mission-driven supporters. Whether you have an afternoon or a career to offer, there's a place for you at Full Circle.</p>
-        <a href="volunteer.html" class="inline-block bg-white text-sage font-bold px-10 py-4 rounded-full hover:bg-cream transition-colors text-base shadow">Explore Volunteer Opportunities →</a>
+        <a href="volunteer.html" class="cta-primary-sage inline-block font-bold px-10 py-4 text-base">Explore Volunteer Opportunities →</a>
       </div>
     </section>
 

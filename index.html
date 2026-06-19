@@ -74,6 +74,12 @@ html { scroll-behavior: smooth; }
 [data-delay="6"] { transition-delay:0.9s; }
 .card-hover { transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease; }
 .card-hover:hover { transform:translateY(-6px); box-shadow:0 20px 40px rgba(0,0,0,0.08); }
+/* CTA buttons — visual styles applied ONLY after animation fires */
+.cta-primary, .cta-outline { display:inline-block; text-align:center; }
+.is-visible .cta-primary { background:#fff; color:#C2703E; border-radius:9999px; box-shadow:0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px -1px rgba(0,0,0,0.1); transition:background 0.15s; }
+.is-visible .cta-primary:hover { background:#FAF7F2; }
+.is-visible .cta-outline { border:2px solid #fff; color:#fff; border-radius:9999px; transition:background 0.15s; }
+.is-visible .cta-outline:hover { background:rgba(255,255,255,0.1); }
 .parallax-img { will-change:transform; }
 .img-reveal { overflow:hidden; }
 .img-reveal img { transition: transform 1.4s cubic-bezier(0.16,1,0.3,1); transform: scale(1.08); }
@@ -230,8 +236,8 @@ html { scroll-behavior: smooth; }
         <h2 class="font-serif text-4xl md:text-5xl font-bold mb-5">Be Part of the Circle</h2>
         <p class="text-white/85 text-lg leading-relaxed mb-10">Every volunteer hour, every donation, every shared story brings us closer to a Santa Fe where land, community, and culture thrive together. Join us.</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="volunteer.html" class="bg-white text-terracotta font-bold px-8 py-4 rounded-full hover:bg-cream transition-colors shadow">Volunteer Today</a>
-          <a href="donate.html" class="border-2 border-white text-white font-bold px-8 py-4 rounded-full hover:bg-white/10 transition-colors">Make a Donation</a>
+          <a href="volunteer.html" class="cta-primary font-bold px-8 py-4">Volunteer Today</a>
+          <a href="donate.html" class="cta-outline font-bold px-8 py-4">Make a Donation</a>
         </div>
       </div>
     </section>
