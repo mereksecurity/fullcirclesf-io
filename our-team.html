@@ -42,9 +42,33 @@
     .nav-link { position:relative; }
     .nav-link::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:2px; background:var(--terracotta); transition:width 0.3s; }
     .nav-link:hover::after { width:100%; }
+    /* Scroll progress */
+    .scroll-progress { position:fixed; top:0; left:0; height:3px; background: linear-gradient(90deg, var(--terracotta), var(--gold)); z-index:200; width:0; }
+    html { scroll-behavior: smooth; }
+    [data-animate] { opacity:0; transform:translateY(30px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    [data-animate="fade-left"] { transform:translateX(-40px); }
+    [data-animate="fade-right"] { transform:translateX(40px); }
+    [data-animate="scale"] { transform:scale(0.9); opacity:0; }
+    [data-animate="fade"] { transform:none; }
+    [data-animate].is-visible { opacity:1; transform:translate(0) scale(1); }
+    .hero-enter { opacity:0; transform:translateY(25px); }
+    .hero-enter.is-visible { opacity:1; transform:translateY(0); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+    [data-delay="1"] { transition-delay:0.1s; }
+    [data-delay="2"] { transition-delay:0.2s; }
+    [data-delay="3"] { transition-delay:0.3s; }
+    [data-delay="4"] { transition-delay:0.4s; }
+    [data-delay="5"] { transition-delay:0.5s; }
+    [data-delay="6"] { transition-delay:0.6s; }
+    .card-hover { transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease; }
+    .card-hover:hover { transform:translateY(-6px); box-shadow:0 20px 40px rgba(0,0,0,0.08); }
+    .parallax-img { will-change:transform; }
+    .img-reveal { overflow:hidden; }
+    .img-reveal img { transition: transform 0.8s cubic-bezier(0.16,1,0.3,1); transform: scale(1.08); }
+    .img-reveal.is-visible img { transform: scale(1); }
   </style>
 </head>
 <body class="bg-cream">
+  <div class="scroll-progress"></div>
 
   <!-- HEADER -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-cream shadow-md">
@@ -83,24 +107,24 @@
 
     <!-- HERO -->
     <section class="relative h-[50vh] flex items-center justify-center overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80" alt="Community team" class="absolute inset-0 w-full h-full object-cover" />
+      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80" alt="Community team" class="parallax-img absolute inset-0 w-full h-full object-cover" />
       <div class="hero-overlay absolute inset-0"></div>
       <div class="relative z-10 text-center text-white px-6 max-w-3xl mx-auto">
-        <h1 class="font-serif text-5xl md:text-6xl font-bold mb-4">Our Team</h1>
-        <p class="text-white/85 text-lg md:text-xl">The people behind the mission — passionate stewards of land, community, and culture.</p>
+        <h1 class="hero-enter font-serif text-5xl md:text-6xl font-bold mb-4">Our Team</h1>
+        <p class="hero-enter text-white/85 text-lg md:text-xl">The people behind the mission — passionate stewards of land, community, and culture.</p>
       </div>
     </section>
 
     <!-- FOUNDERS -->
     <section class="bg-cream py-20 px-6">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-14">
+        <div class="text-center mb-14" data-animate="fade">
           <span class="text-terracotta font-semibold text-sm uppercase tracking-widest">Leadership</span>
           <h2 class="font-serif text-4xl text-adobe mt-2">Our Founders</h2>
         </div>
         <div class="grid md:grid-cols-2 gap-10">
           <!-- Joe -->
-          <div class="bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col md:flex-row">
+          <div class="bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col md:flex-row" data-animate="fade-left">
             <div class="md:w-52 flex-shrink-0">
               <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Joe, Executive Director" class="w-full h-56 md:h-full object-cover object-top" />
             </div>
@@ -113,7 +137,7 @@
             </div>
           </div>
           <!-- Chas -->
-          <div class="bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col md:flex-row">
+          <div class="bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col md:flex-row" data-animate="fade-right">
             <div class="md:w-52 flex-shrink-0">
               <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt="Chas, Creative Director" class="w-full h-56 md:h-full object-cover object-top" />
             </div>
@@ -132,14 +156,14 @@
     <!-- ADVISORY BOARD -->
     <section class="bg-cream-dark py-20 px-6">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-14">
+        <div class="text-center mb-14" data-animate="fade">
           <span class="text-terracotta font-semibold text-sm uppercase tracking-widest">Advisors</span>
           <h2 class="font-serif text-4xl text-adobe mt-2 mb-4">Advisory Board</h2>
           <p class="text-adobe-light text-lg max-w-2xl mx-auto">Our advisory board brings deep expertise in ecology, landscape architecture, arts administration, and community development.</p>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <!-- Maria -->
-          <div class="bg-white rounded-2xl p-8 text-center shadow-sm border border-sand">
+          <div class="card-hover bg-white rounded-2xl p-8 text-center shadow-sm border border-sand" data-animate="scale" data-delay="1">
             <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-5 border-4 border-sand">
               <img src="https://images.unsplash.com/photo-1494790108755-2616b612b82c?w=200&q=80" alt="Maria Gonzalez" class="w-full h-full object-cover" />
             </div>
@@ -148,7 +172,7 @@
             <p class="text-adobe-light text-xs leading-relaxed">ASLA Fellow with 20 years designing sustainable public landscapes across the Southwest.</p>
           </div>
           <!-- Dr. Thomas -->
-          <div class="bg-white rounded-2xl p-8 text-center shadow-sm border border-sand">
+          <div class="card-hover bg-white rounded-2xl p-8 text-center shadow-sm border border-sand" data-animate="scale" data-delay="2">
             <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-5 border-4 border-sand">
               <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80" alt="Dr. Thomas Rivera" class="w-full h-full object-cover" />
             </div>
@@ -157,7 +181,7 @@
             <p class="text-adobe-light text-xs leading-relaxed">Professor of Desert Ecology at UNM and leading researcher in Chihuahuan Desert riparian systems.</p>
           </div>
           <!-- Sarah -->
-          <div class="bg-white rounded-2xl p-8 text-center shadow-sm border border-sand">
+          <div class="card-hover bg-white rounded-2xl p-8 text-center shadow-sm border border-sand" data-animate="scale" data-delay="3">
             <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-5 border-4 border-sand">
               <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&q=80" alt="Sarah Lightfoot" class="w-full h-full object-cover" />
             </div>
@@ -166,7 +190,7 @@
             <p class="text-adobe-light text-xs leading-relaxed">Former Director of the New Mexico Arts Commission and champion of public art in underserved communities.</p>
           </div>
           <!-- Robert -->
-          <div class="bg-white rounded-2xl p-8 text-center shadow-sm border border-sand">
+          <div class="card-hover bg-white rounded-2xl p-8 text-center shadow-sm border border-sand" data-animate="scale" data-delay="4">
             <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-5 border-4 border-sand">
               <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&q=80" alt="Robert Sandoval" class="w-full h-full object-cover" />
             </div>
@@ -180,7 +204,7 @@
 
     <!-- JOIN OUR TEAM CTA -->
     <section class="bg-sage py-16 px-6 text-center text-white">
-      <div class="max-w-2xl mx-auto">
+      <div class="max-w-2xl mx-auto" data-animate="fade">
         <h2 class="font-serif text-4xl font-bold mb-4">Join Our Team</h2>
         <p class="text-white/85 text-lg mb-8">We're always looking for passionate volunteers, skilled collaborators, and mission-driven supporters. Whether you have an afternoon or a career to offer, there's a place for you at Full Circle.</p>
         <a href="volunteer.html" class="inline-block bg-white text-sage font-bold px-10 py-4 rounded-full hover:bg-cream transition-colors text-base shadow">Explore Volunteer Opportunities →</a>
@@ -234,5 +258,22 @@
     </div>
   </footer>
 
+<script>
+(function(){
+  var sp=document.querySelector('.scroll-progress');
+  window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;if(h>0)sp.style.width=(window.scrollY/h*100)+'%';});
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('[data-animate],.img-reveal').forEach(function(el){obs.observe(el);});
+  window.addEventListener('load',function(){document.querySelectorAll('.hero-enter').forEach(function(el,i){setTimeout(function(){el.classList.add('is-visible');},300+i*200);});});
+  document.querySelectorAll('[data-count]').forEach(function(el){
+    var cobs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var t=parseInt(e.target.getAttribute('data-count')),s=e.target.getAttribute('data-suffix')||'',c=0,step=Math.max(1,Math.floor(t/30)),timer=setInterval(function(){c+=step;if(c>=t){c=t;clearInterval(timer);}e.target.textContent=c+s;},35);cobs.unobserve(e.target);}});},{threshold:0.5});
+    cobs.observe(el);
+  });
+  var pImgs=document.querySelectorAll('.parallax-img');
+  if(pImgs.length)window.addEventListener('scroll',function(){pImgs.forEach(function(img){var r=img.parentElement.getBoundingClientRect();img.style.transform='translateY('+(-r.top*0.04)+'px) scale(1.05)';});});
+  var hdr=document.querySelector('header');
+  window.addEventListener('scroll',function(){if(window.scrollY>60){hdr.style.boxShadow='0 4px 30px rgba(0,0,0,0.08)';hdr.style.background='rgba(250,247,242,0.95)';hdr.style.backdropFilter='blur(10px)';}else{hdr.style.boxShadow='';hdr.style.background='';hdr.style.backdropFilter='';}});
+})();
+</script>
 </body>
 </html>

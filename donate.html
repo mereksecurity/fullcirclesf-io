@@ -45,9 +45,33 @@
     .amount-btn { cursor:pointer; transition: all 0.2s; }
     .amount-btn:hover { background-color: var(--terracotta); color: white; border-color: var(--terracotta); }
     .amount-btn.active { background-color: var(--terracotta); color: white; border-color: var(--terracotta); }
+    /* Scroll progress */
+    .scroll-progress { position:fixed; top:0; left:0; height:3px; background: linear-gradient(90deg, var(--terracotta), var(--gold)); z-index:200; width:0; }
+    html { scroll-behavior: smooth; }
+    [data-animate] { opacity:0; transform:translateY(30px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    [data-animate="fade-left"] { transform:translateX(-40px); }
+    [data-animate="fade-right"] { transform:translateX(40px); }
+    [data-animate="scale"] { transform:scale(0.9); opacity:0; }
+    [data-animate="fade"] { transform:none; }
+    [data-animate].is-visible { opacity:1; transform:translate(0) scale(1); }
+    .hero-enter { opacity:0; transform:translateY(25px); }
+    .hero-enter.is-visible { opacity:1; transform:translateY(0); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+    [data-delay="1"] { transition-delay:0.1s; }
+    [data-delay="2"] { transition-delay:0.2s; }
+    [data-delay="3"] { transition-delay:0.3s; }
+    [data-delay="4"] { transition-delay:0.4s; }
+    [data-delay="5"] { transition-delay:0.5s; }
+    [data-delay="6"] { transition-delay:0.6s; }
+    .card-hover { transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease; }
+    .card-hover:hover { transform:translateY(-6px); box-shadow:0 20px 40px rgba(0,0,0,0.08); }
+    .parallax-img { will-change:transform; }
+    .img-reveal { overflow:hidden; }
+    .img-reveal img { transition: transform 0.8s cubic-bezier(0.16,1,0.3,1); transform: scale(1.08); }
+    .img-reveal.is-visible img { transform: scale(1); }
   </style>
 </head>
 <body class="bg-cream">
+  <div class="scroll-progress"></div>
 
   <!-- HEADER -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-cream shadow-md">
@@ -86,17 +110,17 @@
 
     <!-- HERO -->
     <section class="relative h-[50vh] flex items-center justify-center overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920&q=80" alt="Santa Fe landscape" class="absolute inset-0 w-full h-full object-cover" />
+      <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920&q=80" alt="Santa Fe landscape" class="parallax-img absolute inset-0 w-full h-full object-cover" />
       <div class="hero-overlay absolute inset-0"></div>
       <div class="relative z-10 text-center text-white px-6 max-w-3xl mx-auto">
-        <h1 class="font-serif text-5xl md:text-6xl font-bold mb-4">Support Our Work</h1>
-        <p class="text-white/85 text-lg md:text-xl">Your tax-deductible gift helps restore Santa Fe's land and enrich its community. Every dollar goes to work in the high desert.</p>
+        <h1 class="hero-enter font-serif text-5xl md:text-6xl font-bold mb-4">Support Our Work</h1>
+        <p class="hero-enter text-white/85 text-lg md:text-xl">Your tax-deductible gift helps restore Santa Fe's land and enrich its community. Every dollar goes to work in the high desert.</p>
       </div>
     </section>
 
     <!-- IMPACT STATEMENT -->
     <section class="bg-cream py-16 px-6">
-      <div class="max-w-3xl mx-auto text-center">
+      <div class="max-w-3xl mx-auto text-center" data-animate="fade">
         <blockquote class="font-serif text-2xl md:text-3xl text-adobe leading-relaxed mb-6">
           "Donations to Full Circle fund native plant restoration, community workshops, public art installations, and the volunteer programs that make all of it possible."
         </blockquote>
@@ -107,13 +131,13 @@
     <!-- DONATION TIERS -->
     <section class="bg-cream-dark py-20 px-6">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-14">
+        <div class="text-center mb-14" data-animate="fade">
           <span class="text-terracotta font-semibold text-sm uppercase tracking-widest">Monthly Giving</span>
           <h2 class="font-serif text-4xl text-adobe mt-2">Choose Your Impact Level</h2>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- Seed -->
-          <div class="bg-white border border-sand rounded-2xl p-7 flex flex-col shadow-sm">
+          <div class="bg-white border border-sand rounded-2xl p-7 flex flex-col shadow-sm card-hover" data-animate="fade" data-delay="1">
             <div class="text-3xl mb-3">🌱</div>
             <div class="font-serif text-3xl text-adobe font-bold mb-1">$25<span class="text-base font-sans font-normal text-adobe-light">/mo</span></div>
             <div class="text-sage font-bold text-sm uppercase tracking-widest mb-4">Seed</div>
@@ -122,7 +146,7 @@
             <a href="#one-time" class="block text-center border border-sage text-sage font-semibold py-3 rounded-full text-sm hover:bg-sage hover:text-white transition-colors">Choose This Level</a>
           </div>
           <!-- Bloom - FEATURED -->
-          <div class="bg-white border-2 border-terracotta rounded-2xl p-7 flex flex-col shadow-md relative">
+          <div class="bg-white border-2 border-terracotta rounded-2xl p-7 flex flex-col shadow-md relative card-hover" data-animate="fade" data-delay="2">
             <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-terracotta text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest">Most Popular</div>
             <div class="text-3xl mb-3">🌸</div>
             <div class="font-serif text-3xl text-adobe font-bold mb-1">$75<span class="text-base font-sans font-normal text-adobe-light">/mo</span></div>
@@ -132,7 +156,7 @@
             <a href="#one-time" class="block text-center bg-terracotta text-white font-semibold py-3 rounded-full text-sm hover:bg-terracotta-dark transition-colors">Choose This Level</a>
           </div>
           <!-- Canopy -->
-          <div class="bg-white border border-sand rounded-2xl p-7 flex flex-col shadow-sm">
+          <div class="bg-white border border-sand rounded-2xl p-7 flex flex-col shadow-sm card-hover" data-animate="fade" data-delay="3">
             <div class="text-3xl mb-3">🌳</div>
             <div class="font-serif text-3xl text-adobe font-bold mb-1">$150<span class="text-base font-sans font-normal text-adobe-light">/mo</span></div>
             <div class="text-gold font-bold text-sm uppercase tracking-widest mb-4">Canopy</div>
@@ -141,7 +165,7 @@
             <a href="#one-time" class="block text-center border border-gold text-gold font-semibold py-3 rounded-full text-sm hover:bg-gold hover:text-white transition-colors">Choose This Level</a>
           </div>
           <!-- Watershed -->
-          <div class="bg-white border border-sand rounded-2xl p-7 flex flex-col shadow-sm">
+          <div class="bg-white border border-sand rounded-2xl p-7 flex flex-col shadow-sm card-hover" data-animate="fade" data-delay="4">
             <div class="text-3xl mb-3">💧</div>
             <div class="font-serif text-3xl text-adobe font-bold mb-1">$500+<span class="text-base font-sans font-normal text-adobe-light">/mo</span></div>
             <div class="text-adobe font-bold text-sm uppercase tracking-widest mb-4">Watershed</div>
@@ -156,23 +180,23 @@
     <!-- TRANSPARENCY -->
     <section class="bg-sage py-16 px-6 text-white">
       <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-10">
+        <div class="text-center mb-10" data-animate="fade">
           <h2 class="font-serif text-3xl font-bold mb-3">Where Your Money Goes</h2>
           <p class="text-white/80 text-sm">Full Circle Santa Fe is a registered 501(c)(3) nonprofit. Donations are tax-deductible to the full extent of the law.</p>
         </div>
         <div class="grid sm:grid-cols-3 gap-6 text-center">
-          <div class="bg-white/10 rounded-2xl p-7">
-            <div class="font-serif text-5xl font-bold mb-2">70%</div>
+          <div class="bg-white/10 rounded-2xl p-7" data-animate="scale" data-delay="1">
+            <div class="font-serif text-5xl font-bold mb-2"><span data-count="70" data-suffix="%">0%</span></div>
             <div class="font-semibold text-sm uppercase tracking-widest mb-2 text-white/80">Programs</div>
             <p class="text-white/70 text-xs leading-relaxed">Direct restoration work, native plant procurement, volunteer programs, and public art commissions.</p>
           </div>
-          <div class="bg-white/10 rounded-2xl p-7">
-            <div class="font-serif text-5xl font-bold mb-2">20%</div>
+          <div class="bg-white/10 rounded-2xl p-7" data-animate="scale" data-delay="2">
+            <div class="font-serif text-5xl font-bold mb-2"><span data-count="20" data-suffix="%">0%</span></div>
             <div class="font-semibold text-sm uppercase tracking-widest mb-2 text-white/80">Community Events</div>
             <p class="text-white/70 text-xs leading-relaxed">Workshops, educational programming, community gatherings, and volunteer appreciation events.</p>
           </div>
-          <div class="bg-white/10 rounded-2xl p-7">
-            <div class="font-serif text-5xl font-bold mb-2">10%</div>
+          <div class="bg-white/10 rounded-2xl p-7" data-animate="scale" data-delay="3">
+            <div class="font-serif text-5xl font-bold mb-2"><span data-count="10" data-suffix="%">0%</span></div>
             <div class="font-semibold text-sm uppercase tracking-widest mb-2 text-white/80">Operations</div>
             <p class="text-white/70 text-xs leading-relaxed">Staff, technology, and administrative costs that keep the organization running efficiently.</p>
           </div>
@@ -183,22 +207,22 @@
     <!-- OTHER WAYS TO GIVE -->
     <section class="bg-cream py-20 px-6">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12" data-animate="fade">
           <span class="text-terracotta font-semibold text-sm uppercase tracking-widest">Other Ways to Give</span>
           <h2 class="font-serif text-4xl text-adobe mt-2">More Ways to Support</h2>
         </div>
         <div class="grid sm:grid-cols-3 gap-8">
-          <div class="bg-cream-dark border border-sand rounded-2xl p-8 text-center">
+          <div class="bg-cream-dark border border-sand rounded-2xl p-8 text-center card-hover" data-animate="fade" data-delay="1">
             <div class="text-4xl mb-4">📜</div>
             <h3 class="font-serif text-xl text-adobe mb-3">Planned Giving</h3>
             <p class="text-adobe-light text-sm leading-relaxed">Leave a lasting legacy by including Full Circle in your estate planning. Contact us to learn about bequest opportunities.</p>
           </div>
-          <div class="bg-cream-dark border border-sand rounded-2xl p-8 text-center">
+          <div class="bg-cream-dark border border-sand rounded-2xl p-8 text-center card-hover" data-animate="fade" data-delay="2">
             <div class="text-4xl mb-4">🎁</div>
             <h3 class="font-serif text-xl text-adobe mb-3">In-Kind Donations</h3>
             <p class="text-adobe-light text-sm leading-relaxed">Donate native plants, tools, art supplies, or professional services. In-kind gifts are often exactly what we need most.</p>
           </div>
-          <div class="bg-cream-dark border border-sand rounded-2xl p-8 text-center">
+          <div class="bg-cream-dark border border-sand rounded-2xl p-8 text-center card-hover" data-animate="fade" data-delay="3">
             <div class="text-4xl mb-4">🏢</div>
             <h3 class="font-serif text-xl text-adobe mb-3">Corporate Sponsorship</h3>
             <p class="text-adobe-light text-sm leading-relaxed">Partner with Full Circle as a business sponsor and connect your brand to Santa Fe's most vibrant restoration and arts initiative.</p>
@@ -240,6 +264,24 @@
       btn.classList.remove('border-sand','text-adobe');
       document.getElementById('custom-amount').classList.toggle('hidden', val !== 'custom');
     }
+  </script>
+
+  <script>
+  (function(){
+    var sp=document.querySelector('.scroll-progress');
+    window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;if(h>0)sp.style.width=(window.scrollY/h*100)+'%';});
+    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -50px 0px'});
+    document.querySelectorAll('[data-animate],.img-reveal').forEach(function(el){obs.observe(el);});
+    window.addEventListener('load',function(){document.querySelectorAll('.hero-enter').forEach(function(el,i){setTimeout(function(){el.classList.add('is-visible');},300+i*200);});});
+    document.querySelectorAll('[data-count]').forEach(function(el){
+      var cobs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var t=parseInt(e.target.getAttribute('data-count')),s=e.target.getAttribute('data-suffix')||'',c=0,step=Math.max(1,Math.floor(t/30)),timer=setInterval(function(){c+=step;if(c>=t){c=t;clearInterval(timer);}e.target.textContent=c+s;},35);cobs.unobserve(e.target);}});},{threshold:0.5});
+      cobs.observe(el);
+    });
+    var pImgs=document.querySelectorAll('.parallax-img');
+    if(pImgs.length)window.addEventListener('scroll',function(){pImgs.forEach(function(img){var r=img.parentElement.getBoundingClientRect();img.style.transform='translateY('+(-r.top*0.04)+'px) scale(1.05)';});});
+    var hdr=document.querySelector('header');
+    window.addEventListener('scroll',function(){if(window.scrollY>60){hdr.style.boxShadow='0 4px 30px rgba(0,0,0,0.08)';hdr.style.background='rgba(250,247,242,0.95)';hdr.style.backdropFilter='blur(10px)';}else{hdr.style.boxShadow='';hdr.style.background='';hdr.style.backdropFilter='';}});
+  })();
   </script>
 
   <!-- FOOTER -->

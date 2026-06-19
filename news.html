@@ -43,9 +43,33 @@
     .nav-link::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:2px; background:var(--terracotta); transition:width 0.3s; }
     .nav-link:hover::after { width:100%; }
     .news-card:hover { transform: translateY(-3px); transition: transform 0.3s ease; }
+    /* Scroll progress */
+    .scroll-progress { position:fixed; top:0; left:0; height:3px; background: linear-gradient(90deg, var(--terracotta), var(--gold)); z-index:200; width:0; }
+    html { scroll-behavior: smooth; }
+    [data-animate] { opacity:0; transform:translateY(30px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    [data-animate="fade-left"] { transform:translateX(-40px); }
+    [data-animate="fade-right"] { transform:translateX(40px); }
+    [data-animate="scale"] { transform:scale(0.9); opacity:0; }
+    [data-animate="fade"] { transform:none; }
+    [data-animate].is-visible { opacity:1; transform:translate(0) scale(1); }
+    .hero-enter { opacity:0; transform:translateY(25px); }
+    .hero-enter.is-visible { opacity:1; transform:translateY(0); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+    [data-delay="1"] { transition-delay:0.1s; }
+    [data-delay="2"] { transition-delay:0.2s; }
+    [data-delay="3"] { transition-delay:0.3s; }
+    [data-delay="4"] { transition-delay:0.4s; }
+    [data-delay="5"] { transition-delay:0.5s; }
+    [data-delay="6"] { transition-delay:0.6s; }
+    .card-hover { transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease; }
+    .card-hover:hover { transform:translateY(-6px); box-shadow:0 20px 40px rgba(0,0,0,0.08); }
+    .parallax-img { will-change:transform; }
+    .img-reveal { overflow:hidden; }
+    .img-reveal img { transition: transform 0.8s cubic-bezier(0.16,1,0.3,1); transform: scale(1.08); }
+    .img-reveal.is-visible img { transform: scale(1); }
   </style>
 </head>
 <body class="bg-cream">
+  <div class="scroll-progress"></div>
 
   <!-- HEADER -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-cream shadow-md">
@@ -84,11 +108,11 @@
 
     <!-- HERO -->
     <section class="relative h-[40vh] flex items-center justify-center overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=1920&q=80" alt="Santa Fe art" class="absolute inset-0 w-full h-full object-cover" />
+      <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=1920&q=80" alt="Santa Fe art" class="parallax-img absolute inset-0 w-full h-full object-cover" />
       <div class="hero-overlay absolute inset-0"></div>
       <div class="relative z-10 text-center text-white px-6 max-w-3xl mx-auto">
-        <h1 class="font-serif text-5xl md:text-6xl font-bold mb-4">News &amp; Updates</h1>
-        <p class="text-white/85 text-lg">Stories from the field, community milestones, and the latest from Full Circle Santa Fe.</p>
+        <h1 class="hero-enter font-serif text-5xl md:text-6xl font-bold mb-4">News &amp; Updates</h1>
+        <p class="hero-enter text-white/85 text-lg">Stories from the field, community milestones, and the latest from Full Circle Santa Fe.</p>
       </div>
     </section>
 
@@ -98,7 +122,7 @@
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
           <!-- Post 1 -->
-          <article class="news-card bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col">
+          <article class="news-card card-hover bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col" data-animate="fade" data-delay="1">
             <div class="h-48 overflow-hidden">
               <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80" alt="Spring planting" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
             </div>
@@ -114,7 +138,7 @@
           </article>
 
           <!-- Post 2 -->
-          <article class="news-card bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col">
+          <article class="news-card card-hover bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col" data-animate="fade" data-delay="2">
             <div class="h-48 overflow-hidden">
               <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=80" alt="Mural project" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
             </div>
@@ -130,7 +154,7 @@
           </article>
 
           <!-- Post 3 -->
-          <article class="news-card bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col">
+          <article class="news-card card-hover bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col" data-animate="fade" data-delay="3">
             <div class="h-48 overflow-hidden">
               <img src="https://images.unsplash.com/photo-1531913764164-f85c52e6e654?w=600&q=80" alt="Public sculpture" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
             </div>
@@ -146,7 +170,7 @@
           </article>
 
           <!-- Post 4 -->
-          <article class="news-card bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col">
+          <article class="news-card card-hover bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col" data-animate="fade" data-delay="1">
             <div class="h-48 overflow-hidden">
               <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="River restoration" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
             </div>
@@ -162,7 +186,7 @@
           </article>
 
           <!-- Post 5 -->
-          <article class="news-card bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col">
+          <article class="news-card card-hover bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col" data-animate="fade" data-delay="2">
             <div class="h-48 overflow-hidden">
               <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&q=80" alt="Volunteers" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
             </div>
@@ -178,7 +202,7 @@
           </article>
 
           <!-- Post 6 -->
-          <article class="news-card bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col">
+          <article class="news-card card-hover bg-white border border-sand rounded-2xl overflow-hidden shadow-sm flex flex-col" data-animate="fade" data-delay="3">
             <div class="h-48 overflow-hidden">
               <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="Annual gala" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
             </div>
@@ -199,7 +223,7 @@
 
     <!-- NEWSLETTER -->
     <section class="bg-terracotta py-16 px-6 text-white text-center">
-      <div class="max-w-xl mx-auto">
+      <div class="max-w-xl mx-auto" data-animate="fade">
         <h2 class="font-serif text-3xl font-bold mb-3">Never Miss an Update</h2>
         <p class="text-white/85 mb-8">Subscribe to our newsletter for project updates, volunteer opportunities, and community stories delivered monthly.</p>
         <form class="flex gap-3" onsubmit="return false;">
@@ -210,6 +234,24 @@
     </section>
 
   </main>
+
+  <script>
+  (function(){
+    var sp=document.querySelector('.scroll-progress');
+    window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;if(h>0)sp.style.width=(window.scrollY/h*100)+'%';});
+    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -50px 0px'});
+    document.querySelectorAll('[data-animate],.img-reveal').forEach(function(el){obs.observe(el);});
+    window.addEventListener('load',function(){document.querySelectorAll('.hero-enter').forEach(function(el,i){setTimeout(function(){el.classList.add('is-visible');},300+i*200);});});
+    document.querySelectorAll('[data-count]').forEach(function(el){
+      var cobs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var t=parseInt(e.target.getAttribute('data-count')),s=e.target.getAttribute('data-suffix')||'',c=0,step=Math.max(1,Math.floor(t/30)),timer=setInterval(function(){c+=step;if(c>=t){c=t;clearInterval(timer);}e.target.textContent=c+s;},35);cobs.unobserve(e.target);}});},{threshold:0.5});
+      cobs.observe(el);
+    });
+    var pImgs=document.querySelectorAll('.parallax-img');
+    if(pImgs.length)window.addEventListener('scroll',function(){pImgs.forEach(function(img){var r=img.parentElement.getBoundingClientRect();img.style.transform='translateY('+(-r.top*0.04)+'px) scale(1.05)';});});
+    var hdr=document.querySelector('header');
+    window.addEventListener('scroll',function(){if(window.scrollY>60){hdr.style.boxShadow='0 4px 30px rgba(0,0,0,0.08)';hdr.style.background='rgba(250,247,242,0.95)';hdr.style.backdropFilter='blur(10px)';}else{hdr.style.boxShadow='';hdr.style.background='';hdr.style.backdropFilter='';}});
+  })();
+  </script>
 
   <!-- FOOTER -->
   <footer class="bg-adobe text-cream/80 pt-16 pb-8 px-6">
