@@ -317,5 +317,8 @@
   });
   var pImgs=document.querySelectorAll('.parallax-img');
   if(pImgs.length)window.addEventListener('scroll',function(){pImgs.forEach(function(img){var r=img.parentElement.getBoundingClientRect();img.style.transform='translateY('+(-r.top*0.04)+'px) scale(1.05)';});});
-  var hdr=document.querySelector('header');
-  window.addEventListener('scroll',function(){if(window.scrollY>60){hdr.style.boxShadow='0 4px 30px rgba(0,0,0,0.08)';hdr.style.backg
+  window.addEventListener('scroll',function(){if(window.scrollY>60){hdr.style.boxShadow='0 4px 30px rgba(0,0,0,0.08)';hdr.style.background='rgba(250,247,242,0.95)';hdr.style.backdropFilter='blur(10px)';}else{hdr.style.boxShadow='';hdr.style.background='';hdr.style.backdropFilter='';}});
+})();
+</script>
+</body>
+</html>
