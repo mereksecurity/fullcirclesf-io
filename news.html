@@ -51,6 +51,8 @@
     [data-animate="fade-right"] { transform:translateX(40px); }
     [data-animate="scale"] { transform:scale(0.9); opacity:0; }
     [data-animate="fade"] { transform:none; }
+    [data-animate]:not(.is-visible) input,
+    [data-animate]:not(.is-visible) button { visibility:hidden !important; opacity:0 !important; background:transparent !important; border-color:transparent !important; box-shadow:none !important; }
     [data-animate].is-visible { opacity:1; visibility:visible; transform:translate(0) scale(1); transition: opacity 1.4s cubic-bezier(0.16,1,0.3,1), transform 1.4s cubic-bezier(0.16,1,0.3,1), visibility 0s linear 0s; }
     .hero-enter { opacity:0; transform:translateY(25px); }
     .hero-enter.is-visible { opacity:1; transform:translateY(0); transition: opacity 1.5s cubic-bezier(0.16,1,0.3,1), transform 1.5s cubic-bezier(0.16,1,0.3,1); }
@@ -293,10 +295,4 @@
         </ul>
       </div>
     </div>
-    <div class="border-t border-white/10 pt-6 text-center text-xs text-cream/50">
-      &copy; 2025 Full Circle Santa Fe. All rights reserved. &nbsp;|&nbsp; 501(c)(3) Nonprofit &nbsp;|&nbsp; EIN: 87-XXXXXXX
-    </div>
-  </footer>
-
-</body>
-</html>
+    <div class="border-t border-white/10 pt-6 text-center te
