@@ -1,0 +1,14 @@
+{
+  "name": "fullcirclesf-io-render-check",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Render check for the Full Circle Santa Fe pages",
+  "scripts": {
+    "serve": "node serve.mjs ..",
+    "test:render": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "~1.56.0",
+    "@types/node": "^22.20.2"
+  }
+}
